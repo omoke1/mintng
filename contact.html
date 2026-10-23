@@ -399,6 +399,59 @@ header.navbar-wrap{
 
 /* Footer - Exactly Matching index.html */
 footer{background:#0f1714;color:#9aa6a0;font-size:12px;padding:50px 0 60px}
+.footer-contact-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:18px;
+  padding-bottom:34px;
+  margin-bottom:38px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.f-contact-card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+  padding:20px 18px;
+  display:flex;
+  flex-direction:column;
+  transition:all .2s ease;
+}
+.f-contact-card:hover{
+  background:rgba(255,255,255,0.06);
+  border-color:rgba(79,214,156,0.3);
+  transform:translateY(-2px);
+}
+.f-contact-card h4{
+  font-size:14px;
+  font-weight:600;
+  color:#fff;
+  margin-bottom:10px;
+}
+.f-contact-card p{
+  font-size:12.5px;
+  line-height:1.55;
+  color:#9aa6a0;
+  margin:0 0 14px;
+  flex:1;
+}
+.f-contact-card .f-contact-highlight{
+  font-size:14px;
+  font-weight:500;
+  color:#e8fbf2;
+}
+.f-contact-action{
+  font-size:12.5px;
+  font-weight:600;
+  color:var(--amber);
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  transition:opacity .15s ease;
+  margin-top:auto;
+}
+.f-contact-action:hover{
+  opacity:.85;
+}
 footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:20px;margin-bottom:36px}
 footer .logo{color:#fff}footer h4{color:#fff;font-weight:400;margin-bottom:10px}footer a{display:block;margin-bottom:8px}
 footer p{margin-top:14px;max-width:900px}
@@ -407,7 +460,11 @@ footer p{margin-top:14px;max-width:900px}
   .contact-wrap{grid-template-columns:1fr;gap:36px}
   .gradient-aura-box{padding:20px;border-radius:24px}
   .form-card{padding:22px 18px}
+  .footer-contact-grid{grid-template-columns:repeat(2,1fr);gap:14px}
   footer .cols{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .footer-contact-grid{grid-template-columns:1fr;gap:12px}
 }
 @media(max-width:540px){
   .contact-details-row{grid-template-columns:1fr}
@@ -571,11 +628,11 @@ footer p{margin-top:14px;max-width:900px}
       <div class="contact-details-row">
         <div class="c-detail-item">
           <small>Head Office</small>
-          <span>Port Harcourt, Rivers State</span>
+          <span>44, Old Aba Road, Rumuogba, Rivers State</span>
         </div>
         <div class="c-detail-item">
           <small>Customer Support</small>
-          <span>support@mintmfb.ng</span>
+          <span>contact@mintng.com</span>
         </div>
       </div>
 
@@ -661,7 +718,34 @@ footer p{margin-top:14px;max-width:900px}
 
 <!-- Footer - Exactly Matching index.html -->
 <footer><div class="wrap">
-<div class="cols"><div><a class="logo" href="index.html"><i style="border-color:#fff"></i>Mint</a><p style="margin-top:12px">© Mint Microfinance Bank Ltd. All rights reserved.</p></div>
+  <!-- Contact & Branch Info Grid -->
+  <div class="footer-contact-grid">
+    <div class="f-contact-card">
+      <h4>Visit Our Office</h4>
+      <p>44, Old Aba Road,<br>Rumuogba, Obio Akpor LGA,<br>Rivers State, Nigeria</p>
+      <a href="https://maps.google.com/?q=44+Old+Aba+Road+Rumuogba+Obio+Akpor+Rivers+State+Nigeria" target="_blank" rel="noopener" class="f-contact-action">Get Directions &rarr;</a>
+    </div>
+
+    <div class="f-contact-card">
+      <h4>Call Us</h4>
+      <p class="f-contact-highlight">+234 814 152 5625</p>
+      <a href="tel:+2348141525625" class="f-contact-action">Call Now &rarr;</a>
+    </div>
+
+    <div class="f-contact-card">
+      <h4>Email Us</h4>
+      <p class="f-contact-highlight">contact@mintng.com</p>
+      <a href="mailto:contact@mintng.com" class="f-contact-action">Send Email &rarr;</a>
+    </div>
+
+    <div class="f-contact-card">
+      <h4>Business Hours</h4>
+      <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday - Sunday: Closed</p>
+      <a href="contact.html" class="f-contact-action">View Calendar &rarr;</a>
+    </div>
+  </div>
+
+  <div class="cols"><div><a class="logo" href="index.html"><i style="border-color:#fff"></i>Mint</a><p style="margin-top:12px">© Mint Microfinance Bank Ltd. All rights reserved.</p></div>
 <div><h4>Company</h4><a href="index.html#about">About</a><a href="contact.html">Contact Us</a></div>
 <div><h4>Products</h4><a href="index.html#products">Business Loans</a><a href="index.html#products">Savings</a><a href="index.html#app">Mobile Banking</a><a href="index.html#products">POS Services</a></div>
 <div><h4>Get started</h4><a href="index.html#cta">Open account</a><a href="index.html#app">iPhone app</a></div></div>
