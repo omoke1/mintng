@@ -15,27 +15,40 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{background:var(--bg);color:var(--ink);font-family:Outfit,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
-/* Navbar2 Floating Island Container matching 21st.dev component */
-header.navbar-wrap{position:sticky;top:12px;z-index:1000;padding:0 16px;width:100%;box-sizing:border-box}
-.nav-card{
-  max-width:1160px;
-  margin:0 auto;
-  border-radius:24px;
-  border:1px solid var(--line);
-  background:var(--card);
-  box-shadow:0 1px 2px rgba(0,0,0,0.04),0 16px 36px -8px rgba(0,0,0,0.12);
-  transition:all .3s cubic-bezier(.22,1,.36,1);
-  overflow:hidden;
+/* Full-Width Liquid Glass Navigation */
+header.navbar-wrap{
+  position:sticky;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+  z-index:1000;
+  background:color-mix(in srgb,var(--card) 72%,transparent);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-bottom:1px solid color-mix(in srgb,var(--line) 75%,transparent);
+  box-shadow:0 8px 32px 0 rgba(0,0,0,0.06);
+  transition:background .25s ease,box-shadow .25s ease,border-color .25s ease;
+  box-sizing:border-box;
 }
-.nav-row{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:16px}
+
+.nav-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:68px;
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 24px;
+}
 .nav-brand{display:flex;gap:8px;align-items:center;font-weight:600;font-size:19px;color:var(--ink);flex-shrink:0}
 .nav-brand i{width:18px;height:18px;border:3px solid var(--ink);border-radius:5px;display:block}
-.nav-menu{display:flex;align-items:center;gap:4px}
+.nav-menu{display:flex;align-items:center;gap:6px}
 .nav-pill-btn{
   background:transparent;
   color:var(--mute);
   border:0;
-  padding:7px 14px;
+  padding:8px 16px;
   border-radius:9999px;
   font:500 14px Outfit,sans-serif;
   display:inline-flex;
@@ -47,47 +60,53 @@ header.navbar-wrap{position:sticky;top:12px;z-index:1000;padding:0 16px;width:10
 .nav-pill-btn:hover,.nav-pill-btn.open{background:color-mix(in srgb,var(--ink) 8%,transparent);color:var(--ink)}
 .nav-pill-btn .chevron{width:12px;height:12px;transition:transform .25s ease}
 .nav-pill-btn.open .chevron{transform:rotate(180deg)}
-.nav-pill-link{padding:7px 14px;border-radius:9999px;font:500 14px Outfit,sans-serif;color:var(--mute);transition:color .2s}
+.nav-pill-link{padding:8px 16px;border-radius:9999px;font:500 14px Outfit,sans-serif;color:var(--mute);transition:color .2s}
 .nav-pill-link:hover{color:var(--ink)}
 
 .nav-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .nav-lang{position:relative}
-.nav-lang-btn{background:transparent;border:0;font:500 12.5px Outfit,sans-serif;color:var(--mute);display:flex;align-items:center;gap:4px;padding:6px 10px;border-radius:9999px;cursor:pointer}
+.nav-lang-btn{background:transparent;border:0;font:500 13px Outfit,sans-serif;color:var(--mute);display:flex;align-items:center;gap:4px;padding:6px 10px;border-radius:9999px;cursor:pointer}
 .nav-lang-btn:hover{background:color-mix(in srgb,var(--ink) 6%,transparent);color:var(--ink)}
-.btn-sec{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9999px;padding:7px 16px;font:600 12.5px Outfit,sans-serif;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center}
-.btn-sec:hover{background:color-mix(in srgb,var(--ink) 6%,transparent)}
-.btn-pri{background:var(--amber);color:#06281c;border-radius:9999px;padding:7px 18px;font:600 12.5px Outfit,sans-serif;border:0;cursor:pointer;transition:opacity .2s;text-decoration:none;display:inline-flex;align-items:center}
+.btn-sec{border:1px solid color-mix(in srgb,var(--line) 80%,transparent);background:color-mix(in srgb,var(--card) 60%,transparent);color:var(--ink);border-radius:9999px;padding:8px 18px;font:600 13px Outfit,sans-serif;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center}
+.btn-sec:hover{background:color-mix(in srgb,var(--ink) 8%,transparent)}
+.btn-pri{background:var(--amber);color:#06281c;border-radius:9999px;padding:8px 20px;font:600 13px Outfit,sans-serif;border:0;cursor:pointer;transition:opacity .2s;text-decoration:none;display:inline-flex;align-items:center}
 .btn-pri:hover{opacity:.92}
 
-/* Mega dropdown inside the card */
+/* Full-width liquid glass mega dropdown */
 .nav-mega{
   display:none;
-  border-top:1px solid var(--line);
-  background:var(--card);
-  padding:24px 32px 32px;
-  animation:navExpand .25s cubic-bezier(.22,1,.36,1) forwards;
+  width:100%;
+  background:color-mix(in srgb,var(--card) 85%,transparent);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-top:1px solid color-mix(in srgb,var(--line) 60%,transparent);
+  box-shadow:0 24px 48px -12px rgba(0,0,0,0.12);
+  animation:navExpand .22s cubic-bezier(.22,1,.36,1) forwards;
 }
 .nav-mega.open{display:block}
-@keyframes navExpand{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes navExpand{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
 
-.mega-grid3{display:grid;grid-template-columns:1fr 1fr 280px;gap:36px;align-items:start}
-.mega-col-title{display:inline-block;border:1px solid var(--line);border-radius:9999px;padding:3px 12px;font-size:11px;font-weight:600;color:var(--mute);margin-bottom:16px;text-transform:uppercase;letter-spacing:.04em}
-.mega-col-list{display:flex;flex-direction:column;gap:14px}
-.mega-col-item{display:flex;flex-direction:column;gap:2px;text-decoration:none}
-.mega-col-item:hover .m-h{color:var(--amber)}
-.m-h{font-size:15px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px;transition:color .2s}
-.m-sub{font-size:12.5px;color:var(--mute);line-height:1.4}
-.m-badge{font-size:10px;font-weight:700;text-transform:uppercase;background:#e8fbf2;color:#18a574;padding:2px 7px;border-radius:9999px}
-.mega-preview{position:relative;height:220px;border-radius:18px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end}
-.mega-preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.mega-preview-cap{position:relative;z-index:2;background:linear-gradient(to top,rgba(0,0,0,0.85),transparent);padding:18px 14px 12px;color:#fff;font-size:12px;font-weight:500}
-
-@media(max-width:960px){
-  .mega-grid3{grid-template-columns:1fr 1fr}
-  .mega-preview{display:none}
+.mega-wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:36px 24px 40px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:start;
 }
+.mega-col-title{display:inline-block;border:1px solid color-mix(in srgb,var(--line) 80%,transparent);background:color-mix(in srgb,var(--card) 50%,transparent);border-radius:9999px;padding:4px 14px;font-size:11px;font-weight:600;color:var(--mute);margin-bottom:20px;text-transform:uppercase;letter-spacing:.05em}
+.mega-col-list{display:flex;flex-direction:column;gap:18px}
+.mega-col-item{display:flex;flex-direction:column;gap:4px;text-decoration:none;padding:12px 16px;border-radius:14px;transition:background .2s}
+.mega-col-item:hover{background:color-mix(in srgb,var(--ink) 4%,transparent)}
+.mega-col-item:hover .m-h{color:var(--amber)}
+.m-h{font-size:16px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px;transition:color .2s}
+.m-sub{font-size:13px;color:var(--mute);line-height:1.45}
+.m-badge{font-size:10px;font-weight:700;text-transform:uppercase;background:#e8fbf2;color:#18a574;padding:2px 8px;border-radius:9999px}
+
 @media(max-width:760px){
   .nav-menu,.nav-actions{display:none}
+  .mega-wrap{grid-template-columns:1fr;gap:28px;padding:24px 16px}
 }
 .btn{background:var(--amber);color:#06281c;border-radius:8px;padding:7px 16px;font-size:13px;font-weight:500;display:inline-block;border:0;cursor:pointer;font-family:inherit}
 h1,h2{font-weight:500;letter-spacing:-.025em;line-height:1.08}
@@ -202,75 +221,65 @@ footer p{margin-top:14px;max-width:900px}
 </head>
 <body>
 <header class="navbar-wrap">
-  <div class="nav-card">
-    <div class="nav-row">
-      <!-- Logo -->
-      <a class="nav-brand" href="#top"><i></i>Mint</a>
+  <div class="nav-row">
+    <!-- Logo -->
+    <a class="nav-brand" href="#top"><i></i>Mint</a>
 
-      <!-- Desktop nav links -->
-      <nav class="nav-menu">
-        <button class="nav-pill-btn" id="bankingBtn" aria-expanded="false" type="button">
-          Banking
-          <svg class="chevron" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <!-- Desktop nav links -->
+    <nav class="nav-menu">
+      <button class="nav-pill-btn" id="bankingBtn" aria-expanded="false" type="button">
+        Banking
+        <svg class="chevron" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <a class="nav-pill-link" href="#loans">Loans</a>
+      <a class="nav-pill-link" href="#savings">Savings</a>
+      <a class="nav-pill-link" href="#about">About</a>
+      <a class="nav-pill-link" href="#cta">Contact</a>
+    </nav>
+
+    <!-- Right actions -->
+    <div class="nav-actions">
+      <div class="nav-lang">
+        <button class="nav-lang-btn" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          EN
         </button>
-        <a class="nav-pill-link" href="#loans">Loans</a>
-        <a class="nav-pill-link" href="#savings">Savings</a>
-        <a class="nav-pill-link" href="#about">About</a>
-        <a class="nav-pill-link" href="#cta">Contact</a>
-      </nav>
-
-      <!-- Right actions -->
-      <div class="nav-actions">
-        <div class="nav-lang">
-          <button class="nav-lang-btn" type="button">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            EN
-          </button>
-        </div>
-        <a class="btn-sec" href="#app">Sign In</a>
-        <a class="btn-pri" href="#cta">Open account</a>
       </div>
+      <a class="btn-sec" href="#app">Sign In</a>
+      <a class="btn-pri" href="#cta">Open account</a>
     </div>
+  </div>
 
-    <!-- Mega Menu Panel matching Navbar2 -->
-    <div class="nav-mega" id="bankingMega">
-      <div class="mega-grid3">
-        <!-- Col 1 -->
-        <div>
-          <span class="mega-col-title">Personal Banking</span>
-          <div class="mega-col-list">
-            <a href="#cta" class="mega-col-item">
-              <span class="m-h">Current Account</span>
-              <span class="m-sub">Perfect for everyday banking needs with zero fees</span>
-            </a>
-            <a href="#savings" class="mega-col-item">
-              <span class="m-h">Savings Account <span class="m-badge">Up to 15%</span></span>
-              <span class="m-sub">High-yield savings with flexible access and goal saving</span>
-            </a>
-          </div>
+  <!-- Full-Width Liquid Glass Mega Dropdown (No Image, Balanced 2 Columns) -->
+  <div class="nav-mega" id="bankingMega">
+    <div class="mega-wrap">
+      <!-- Col 1: Personal Banking -->
+      <div>
+        <span class="mega-col-title">Personal Banking</span>
+        <div class="mega-col-list">
+          <a href="#cta" class="mega-col-item">
+            <span class="m-h">Current Account</span>
+            <span class="m-sub">Perfect for everyday banking needs with zero fees</span>
+          </a>
+          <a href="#savings" class="mega-col-item">
+            <span class="m-h">Savings Account <span class="m-badge">Up to 15%</span></span>
+            <span class="m-sub">High-yield savings with flexible access and goal saving</span>
+          </a>
         </div>
+      </div>
 
-        <!-- Col 2 -->
-        <div>
-          <span class="mega-col-title">Business & Security</span>
-          <div class="mega-col-list">
-            <a href="#products" class="mega-col-item">
-              <span class="m-h">Small Business Banking</span>
-              <span class="m-sub">Tailored solutions for entrepreneurs, traders & POS</span>
-            </a>
-            <a href="#about" class="mega-col-item">
-              <span class="m-h">Secure Banking <span class="m-badge">CBN / NDIC</span></span>
-              <span class="m-sub">Bank with confidence knowing deposits are insured</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Col 3: Visual Preview Card -->
-        <div class="mega-preview">
-          <img src="https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80" alt="Mint Mobile Banking" />
-          <div class="mega-preview-cap">
-            Digital banking for Nigerians and the businesses they run
-          </div>
+      <!-- Col 2: Business & Security -->
+      <div>
+        <span class="mega-col-title">Business & Security</span>
+        <div class="mega-col-list">
+          <a href="#products" class="mega-col-item">
+            <span class="m-h">Small Business Banking</span>
+            <span class="m-sub">Tailored solutions for entrepreneurs, traders & POS</span>
+          </a>
+          <a href="#about" class="mega-col-item">
+            <span class="m-h">Secure Banking <span class="m-badge">CBN / NDIC</span></span>
+            <span class="m-sub">Bank with confidence knowing deposits are insured</span>
+          </a>
         </div>
       </div>
     </div>
