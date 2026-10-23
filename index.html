@@ -104,6 +104,108 @@ header.navbar-wrap{
 .m-sub{font-size:13px;color:var(--mute);line-height:1.45}
 .m-badge{font-size:10px;font-weight:700;text-transform:uppercase;background:#e8fbf2;color:#18a574;padding:2px 8px;border-radius:9999px}
 
+/* Loans 3-Column Grid & Card Styling */
+.mega-wrap-3{
+  grid-template-columns:repeat(3, 1fr);
+  gap:24px;
+}
+.loan-card{
+  background:color-mix(in srgb,var(--card) 60%,transparent);
+  border:1px solid color-mix(in srgb,var(--line) 75%,transparent);
+  border-radius:18px;
+  padding:22px 20px;
+  display:flex;
+  flex-direction:column;
+  transition:all .22s ease;
+}
+.loan-card:hover{
+  background:color-mix(in srgb,var(--card) 95%,transparent);
+  border-color:var(--amber);
+  transform:translateY(-2px);
+  box-shadow:0 14px 30px -10px rgba(0,0,0,0.12);
+}
+.loan-badge-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:12px;
+  flex-wrap:wrap;
+}
+.rate-badge{
+  font-size:11px;
+  font-weight:600;
+  background:color-mix(in srgb,var(--ink) 6%,transparent);
+  color:var(--ink);
+  padding:2px 8px;
+  border-radius:9999px;
+  border:1px solid color-mix(in srgb,var(--line) 80%,transparent);
+}
+.loan-title{
+  font-size:17px;
+  font-weight:600;
+  color:var(--ink);
+  line-height:1.25;
+  margin:0 0 4px;
+}
+.loan-tagline{
+  font-size:13px;
+  font-weight:500;
+  color:var(--amber);
+  margin:0 0 6px;
+}
+.loan-target{
+  font-size:12.5px;
+  color:var(--mute);
+  line-height:1.45;
+  margin:0 0 14px;
+}
+.loan-bullets{
+  list-style:none;
+  padding:0;
+  margin:0 0 18px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.loan-bullets li{
+  font-size:12.5px;
+  color:var(--ink);
+  opacity:.85;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.loan-bullets li::before{
+  content:"";
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:var(--amber);
+  flex-shrink:0;
+}
+.loan-cta{
+  margin-top:auto;
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink);
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  padding:7px 14px;
+  border-radius:8px;
+  background:color-mix(in srgb,var(--bg) 80%,var(--line));
+  width:fit-content;
+  transition:all .2s ease;
+  text-decoration:none;
+}
+.loan-card:hover .loan-cta{
+  background:var(--amber);
+  color:#06281c;
+}
+
+@media(max-width:960px){
+  .mega-wrap-3{grid-template-columns:1fr;gap:20px}
+}
 @media(max-width:760px){
   .nav-menu,.nav-actions{display:none}
   .mega-wrap{grid-template-columns:1fr;gap:28px;padding:24px 16px}
@@ -231,7 +333,10 @@ footer p{margin-top:14px;max-width:900px}
         Banking
         <svg class="chevron" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       </button>
-      <a class="nav-pill-link" href="#loans">Loans</a>
+      <button class="nav-pill-btn" id="loansBtn" aria-expanded="false" type="button">
+        Loans
+        <svg class="chevron" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
       <a class="nav-pill-link" href="#savings">Savings</a>
       <a class="nav-pill-link" href="#about">About</a>
       <a class="nav-pill-link" href="#cta">Contact</a>
@@ -250,7 +355,7 @@ footer p{margin-top:14px;max-width:900px}
     </div>
   </div>
 
-  <!-- Full-Width Liquid Glass Mega Dropdown (No Image, Balanced 2 Columns) -->
+  <!-- Full-Width Liquid Glass Mega Dropdown (Banking) -->
   <div class="nav-mega" id="bankingMega">
     <div class="mega-wrap">
       <!-- Col 1: Personal Banking -->
@@ -281,6 +386,65 @@ footer p{margin-top:14px;max-width:900px}
             <span class="m-sub">Bank with confidence knowing deposits are insured</span>
           </a>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-Width Liquid Glass Mega Dropdown for Loans (3 Columns) -->
+  <div class="nav-mega" id="loansMega">
+    <div class="mega-wrap mega-wrap-3">
+      <!-- Col 1: Quick Business Loans -->
+      <div class="loan-card">
+        <div class="loan-badge-row">
+          <span class="m-badge">₦50k - ₦5M</span>
+          <span class="rate-badge">From 2.5% monthly</span>
+        </div>
+        <h4 class="loan-title">Quick Business Loans</h4>
+        <p class="loan-tagline">Fast capital for your business needs</p>
+        <p class="loan-target">Perfect for market traders, shop owners, and small businesses</p>
+        <ul class="loan-bullets">
+          <li>24-hour approval</li>
+          <li>Minimal documentation</li>
+          <li>Flexible repayment</li>
+          <li>No collateral required</li>
+        </ul>
+        <a href="#loans" class="loan-cta">Apply Now →</a>
+      </div>
+
+      <!-- Col 2: Salary Advance Loans -->
+      <div class="loan-card">
+        <div class="loan-badge-row">
+          <span class="m-badge">₦20k - ₦500k</span>
+          <span class="rate-badge">From 3% monthly</span>
+        </div>
+        <h4 class="loan-title">Salary Advance Loans</h4>
+        <p class="loan-tagline">Get your salary early when you need it most</p>
+        <p class="loan-target">Ideal for salary earners facing emergencies</p>
+        <ul class="loan-bullets">
+          <li>Same-day disbursement</li>
+          <li>Direct salary deduction</li>
+          <li>Up to 3 months tenure</li>
+          <li>No guarantor needed</li>
+        </ul>
+        <a href="#loans" class="loan-cta">Apply Now →</a>
+      </div>
+
+      <!-- Col 3: Group Loans -->
+      <div class="loan-card">
+        <div class="loan-badge-row">
+          <span class="m-badge">₦100k - ₦2M</span>
+          <span class="rate-badge">From 2% monthly</span>
+        </div>
+        <h4 class="loan-title">Group Loans</h4>
+        <p class="loan-tagline">Leverage the power of community lending</p>
+        <p class="loan-target">Great for cooperatives and trading groups</p>
+        <ul class="loan-bullets">
+          <li>Group guarantee</li>
+          <li>Lower interest rates</li>
+          <li>Flexible terms</li>
+          <li>Financial literacy training</li>
+        </ul>
+        <a href="#loans" class="loan-cta">Apply Now →</a>
       </div>
     </div>
   </div>
@@ -426,39 +590,63 @@ function count(n){const v=+n.dataset.count,d=+n.dataset.dec,t0=performance.now()
 if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');el.addEventListener('transitionend',()=>el.classList.remove('rv'),{once:true});el.querySelectorAll('[data-count]').forEach(count);io.unobserve(el)}),{threshold:.15});
 document.querySelectorAll('.card,.panel,.dash .p,section h2,.sub,.team').forEach(el=>{el.style.setProperty('--d',Array.from(el.parentNode.children).indexOf(el)*.08+'s');el.classList.add('rv');io.observe(el)})}
-// Navbar2 dropdown controller
+// Nav Mega Menus controller (Banking and Loans)
 const bankingBtn = document.getElementById('bankingBtn');
 const bankingMega = document.getElementById('bankingMega');
+const loansBtn = document.getElementById('loansBtn');
+const loansMega = document.getElementById('loansMega');
 
-function toggleMega(force) {
-  if (!bankingBtn || !bankingMega) return;
-  const isCurrentlyOpen = bankingMega.classList.contains('open');
-  const next = typeof force === 'boolean' ? force : !isCurrentlyOpen;
-  bankingBtn.classList.toggle('open', next);
-  bankingMega.classList.toggle('open', next);
-  bankingBtn.setAttribute('aria-expanded', next ? 'true' : 'false');
+function closeAllMenus() {
+  if (bankingBtn) {
+    bankingBtn.classList.remove('open');
+    bankingBtn.setAttribute('aria-expanded', 'false');
+  }
+  if (bankingMega) bankingMega.classList.remove('open');
+  if (loansBtn) {
+    loansBtn.classList.remove('open');
+    loansBtn.setAttribute('aria-expanded', 'false');
+  }
+  if (loansMega) loansMega.classList.remove('open');
+}
+
+function toggleMenu(btn, mega) {
+  if (!btn || !mega) return;
+  const isCurrentlyOpen = mega.classList.contains('open');
+  closeAllMenus();
+  if (!isCurrentlyOpen) {
+    btn.classList.add('open');
+    mega.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
 }
 
 if (bankingBtn && bankingMega) {
   bankingBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    toggleMega();
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!bankingMega.contains(e.target) && !bankingBtn.contains(e.target)) {
-      toggleMega(false);
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') toggleMega(false);
-  });
-
-  bankingMega.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => toggleMega(false));
+    toggleMenu(bankingBtn, bankingMega);
   });
 }
+
+if (loansBtn && loansMega) {
+  loansBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu(loansBtn, loansMega);
+  });
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.navbar-wrap')) {
+    closeAllMenus();
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeAllMenus();
+});
+
+document.querySelectorAll('.nav-mega a').forEach(a => {
+  a.addEventListener('click', () => closeAllMenus());
+});
 
 // Nav shadow on scroll
 const mainNav = document.getElementById('mainNav');
