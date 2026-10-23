@@ -158,13 +158,168 @@ header.navbar-wrap{
   color:var(--mute);
 }
 
+/* Hamburger Button (Hidden on Desktop) */
+.nav-hamburger{
+  display:none;
+  background:transparent;
+  border:0;
+  width:40px;
+  height:40px;
+  border-radius:10px;
+  cursor:pointer;
+  padding:10px 8px;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:center;
+  transition:background .2s;
+  color:var(--ink);
+  flex-shrink:0;
+}
+.nav-hamburger:hover{
+  background:color-mix(in srgb,var(--ink) 8%,transparent);
+}
+.ham-bar{
+  display:block;
+  width:20px;
+  height:2px;
+  background:var(--ink);
+  border-radius:2px;
+  transition:transform .25s ease,opacity .25s ease;
+}
+.nav-hamburger.open .ham-bar:nth-child(1){
+  transform:translateY(6px) rotate(45deg);
+}
+.nav-hamburger.open .ham-bar:nth-child(2){
+  opacity:0;
+  transform:scaleX(0);
+}
+.nav-hamburger.open .ham-bar:nth-child(3){
+  transform:translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile Drawer Overlay */
+.nav-mobile-drawer{
+  display:none;
+  width:100%;
+  max-height:calc(100vh - 68px);
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  background:color-mix(in srgb,var(--card) 94%,transparent);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-top:1px solid color-mix(in srgb,var(--line) 70%,transparent);
+  border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent);
+  box-shadow:0 24px 48px -12px rgba(0,0,0,0.18);
+  animation:drawerSlide .25s cubic-bezier(.22,1,.36,1) forwards;
+}
+.nav-mobile-drawer.open{
+  display:block;
+}
+@keyframes drawerSlide{
+  from{opacity:0;transform:translateY(-8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.mobile-drawer-inner{
+  padding:20px 24px 32px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  max-width:540px;
+  margin:0 auto;
+}
+.m-acc-item{
+  border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);
+  padding-bottom:6px;
+}
+.m-acc-trigger{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:none;
+  border:0;
+  padding:10px 4px;
+  font:600 16px Outfit,sans-serif;
+  color:var(--ink);
+  cursor:pointer;
+  text-align:left;
+}
+.m-acc-icon{
+  width:12px;
+  height:12px;
+  color:var(--mute);
+  transition:transform .2s ease;
+}
+.m-acc-item.open .m-acc-icon{
+  transform:rotate(180deg);
+  color:var(--amber);
+}
+.m-acc-content{
+  display:none;
+  flex-direction:column;
+  gap:8px;
+  padding:6px 6px 12px;
+}
+.m-acc-item.open .m-acc-content{
+  display:flex;
+}
+.m-sublink{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  padding:8px 10px;
+  border-radius:10px;
+  text-decoration:none;
+  transition:background .15s;
+}
+.m-sublink:hover{
+  background:color-mix(in srgb,var(--ink) 5%,transparent);
+}
+.m-sublink strong{
+  font-size:14px;
+  font-weight:600;
+  color:var(--ink);
+}
+.m-sublink small{
+  font-size:12px;
+  color:var(--mute);
+  line-height:1.4;
+}
+.m-direct-link{
+  display:block;
+  padding:12px 4px;
+  font:600 16px Outfit,sans-serif;
+  color:var(--ink);
+  text-decoration:none;
+  border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);
+}
+.m-drawer-actions{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:14px;
+}
+.m-drawer-stores{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-size:12.5px;
+  color:var(--mute);
+  margin-top:10px;
+}
+.m-drawer-stores a{
+  color:var(--amber);
+  font-weight:500;
+  text-decoration:none;
+}
+
 @media(max-width:860px){
   .mega-layout{grid-template-columns:1fr;gap:24px;padding:24px 20px}
   .mega-sep{display:none}
   .mega-grid-2{grid-template-columns:1fr;gap:18px}
-}
-@media(max-width:760px){
   .nav-menu,.nav-actions{display:none}
+  .nav-hamburger{display:inline-flex}
 }
 
 /* Contact Main Section inside identical Hero Background */
@@ -455,6 +610,13 @@ footer p{margin-top:0;line-height:1.55}
       <a class="btn-sec" href="index.html#app">Sign In</a>
       <a class="btn-pri" href="#contactForm">Open account</a>
     </div>
+
+    <!-- Mobile Hamburger Toggle -->
+    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Toggle Navigation Menu" aria-expanded="false" type="button">
+      <span class="ham-bar"></span>
+      <span class="ham-bar"></span>
+      <span class="ham-bar"></span>
+    </button>
   </div>
 
   <!-- Full-Width Liquid Glass Mega Dropdown (Banking) -->
@@ -559,6 +721,99 @@ footer p{margin-top:0;line-height:1.55}
             <p>Save for specific goals with automated deposits, real-time goal tracking, milestone rewards, and up to 12% p.a. from ₦5,000.</p>
           </a>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="nav-mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-inner">
+      <!-- Banking Accordion -->
+      <div class="m-acc-item">
+        <button class="m-acc-trigger" type="button">
+          Banking
+          <svg class="m-acc-icon" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="m-acc-content">
+          <a href="index.html#cta" class="m-sublink">
+            <strong>Current Account</strong>
+            <small>Everyday banking with zero fees and instant transfers.</small>
+          </a>
+          <a href="index.html#about" class="m-sublink">
+            <strong>Secure Banking</strong>
+            <small>CBN licensed and NDIC insured with 24/7 protection.</small>
+          </a>
+          <a href="index.html#products" class="m-sublink">
+            <strong>Small Business Banking</strong>
+            <small>Solutions for entrepreneurs, traders, bulk payments and POS.</small>
+          </a>
+          <a href="index.html#savings" class="m-sublink">
+            <strong>Savings Account</strong>
+            <small>High-yield savings with flexible access and up to 15% interest.</small>
+          </a>
+        </div>
+      </div>
+
+      <!-- Loans Accordion -->
+      <div class="m-acc-item">
+        <button class="m-acc-trigger" type="button">
+          Loans
+          <svg class="m-acc-icon" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="m-acc-content">
+          <a href="index.html#loans" class="m-sublink">
+            <strong>Quick Business Loans</strong>
+            <small>Fast capital for market traders and shop owners (₦50,000 - ₦5,000,000).</small>
+          </a>
+          <a href="index.html#loans" class="m-sublink">
+            <strong>Salary Advance Loans</strong>
+            <small>Get salary early (₦20,000 - ₦500,000) with same-day disbursement.</small>
+          </a>
+          <a href="index.html#loans" class="m-sublink">
+            <strong>Group Loans</strong>
+            <small>Community lending for cooperatives (₦100,000 - ₦2,000,000).</small>
+          </a>
+        </div>
+      </div>
+
+      <!-- Savings Accordion -->
+      <div class="m-acc-item">
+        <button class="m-acc-trigger" type="button">
+          Savings
+          <svg class="m-acc-icon" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="m-acc-content">
+          <a href="index.html#savings" class="m-sublink">
+            <strong>Regular Savings</strong>
+            <small>Flexible savings with easy access up to 8% p.a.</small>
+          </a>
+          <a href="index.html#savings" class="m-sublink">
+            <strong>Mint Save</strong>
+            <small>Tiered interest up to 15% p.a. with compound growth.</small>
+          </a>
+          <a href="index.html#savings" class="m-sublink">
+            <strong>Goal-Based Savings</strong>
+            <small>Target savings with automated deposits up to 12% p.a.</small>
+          </a>
+        </div>
+      </div>
+
+      <!-- Direct Contact Link -->
+      <a href="index.html" class="m-direct-link">Home</a>
+      <a href="contact.html" class="m-direct-link" style="color:var(--amber)">Contact Us</a>
+
+      <!-- Drawer Actions -->
+      <div class="m-drawer-actions">
+        <a class="btn-pri" href="#contactForm" style="justify-content:center;padding:12px;text-align:center">Open account</a>
+        <a class="btn-sec" href="index.html#app" style="justify-content:center;padding:12px;text-align:center">Sign In</a>
+      </div>
+
+      <!-- App Store & Play Store Links -->
+      <div class="m-drawer-stores">
+        <span>Get the app:</span>
+        <a href="https://apps.apple.com/ca/app/mint-mfb/id6747896040" target="_blank" rel="noopener">App Store</a>
+        <span>&bull;</span>
+        <a href="https://play.google.com/store/apps/details?id=com.mintmfb.app&pcampaignid=web_share" target="_blank" rel="noopener">Google Play</a>
       </div>
     </div>
   </div>
@@ -708,13 +963,26 @@ footer p{margin-top:0;line-height:1.55}
 </div></footer>
 
 <script>
-// Nav Mega Menus controller (Banking, Loans, Savings)
+// Contact Form Submission Mock
+const contactForm = document.getElementById('contactForm');
+const formSuccess = document.getElementById('formSuccess');
+if (contactForm && formSuccess) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    contactForm.style.display = 'none';
+    formSuccess.style.display = 'block';
+  });
+}
+
+// Nav Mega Menus & Mobile Drawer controller
 const bankingBtn = document.getElementById('bankingBtn');
 const bankingMega = document.getElementById('bankingMega');
 const loansBtn = document.getElementById('loansBtn');
 const loansMega = document.getElementById('loansMega');
 const savingsBtn = document.getElementById('savingsBtn');
 const savingsMega = document.getElementById('savingsMega');
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileDrawer = document.getElementById('mobileDrawer');
 
 function closeAllMenus() {
   if (bankingBtn) {
@@ -732,6 +1000,11 @@ function closeAllMenus() {
     savingsBtn.setAttribute('aria-expanded', 'false');
   }
   if (savingsMega) savingsMega.classList.remove('open');
+  if (hamburgerBtn) {
+    hamburgerBtn.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  }
+  if (mobileDrawer) mobileDrawer.classList.remove('open');
 }
 
 function toggleMenu(btn, mega) {
@@ -742,6 +1015,21 @@ function toggleMenu(btn, mega) {
     btn.classList.add('open');
     mega.classList.add('open');
     btn.setAttribute('aria-expanded', 'true');
+  }
+}
+
+function toggleMobileDrawer() {
+  if (!hamburgerBtn || !mobileDrawer) return;
+  const isOpen = mobileDrawer.classList.contains('open');
+  if (isOpen) {
+    hamburgerBtn.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    mobileDrawer.classList.remove('open');
+  } else {
+    closeAllMenus();
+    hamburgerBtn.classList.add('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+    mobileDrawer.classList.add('open');
   }
 }
 
@@ -763,6 +1051,30 @@ if (savingsBtn && savingsMega) {
   savingsBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     toggleMenu(savingsBtn, savingsMega);
+  });
+}
+
+if (hamburgerBtn) {
+  hamburgerBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMobileDrawer();
+  });
+}
+
+// Mobile Accordions in Drawer
+document.querySelectorAll('.m-acc-trigger').forEach(trigger => {
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const item = trigger.closest('.m-acc-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.m-acc-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+if (mobileDrawer) {
+  mobileDrawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => closeAllMenus());
   });
 }
 
