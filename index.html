@@ -86,129 +86,75 @@ header.navbar-wrap{
 .nav-mega.open{display:block}
 @keyframes navExpand{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
 
-.mega-wrap{
-  max-width:1100px;
+/* Reah-style minimal typographic dropdown without cards */
+.mega-layout{
+  max-width:1080px;
   margin:0 auto;
-  padding:36px 24px 40px;
+  padding:32px 28px 36px;
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:start;
+  grid-template-columns:1fr 1px 2fr;
+  gap:40px;
+  align-items:stretch;
 }
-.mega-col-title{display:inline-block;border:1px solid color-mix(in srgb,var(--line) 80%,transparent);background:color-mix(in srgb,var(--card) 50%,transparent);border-radius:9999px;padding:4px 14px;font-size:11px;font-weight:600;color:var(--mute);margin-bottom:20px;text-transform:uppercase;letter-spacing:.05em}
-.mega-col-list{display:flex;flex-direction:column;gap:18px}
-.mega-col-item{display:flex;flex-direction:column;gap:4px;text-decoration:none;padding:12px 16px;border-radius:14px;transition:background .2s}
-.mega-col-item:hover{background:color-mix(in srgb,var(--ink) 4%,transparent)}
-.mega-col-item:hover .m-h{color:var(--amber)}
-.m-h{font-size:16px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px;transition:color .2s}
-.m-sub{font-size:13px;color:var(--mute);line-height:1.45}
-.m-badge{font-size:10px;font-weight:700;text-transform:uppercase;background:#e8fbf2;color:#18a574;padding:2px 8px;border-radius:9999px}
-
-/* Loans 3-Column Grid & Card Styling */
-.mega-wrap-3{
-  grid-template-columns:repeat(3, 1fr);
-  gap:24px;
+.mega-sep{
+  width:1px;
+  background:color-mix(in srgb,var(--line) 70%,transparent);
+  height:100%;
 }
-.loan-card{
-  background:color-mix(in srgb,var(--card) 60%,transparent);
-  border:1px solid color-mix(in srgb,var(--line) 75%,transparent);
-  border-radius:18px;
-  padding:22px 20px;
-  display:flex;
-  flex-direction:column;
-  transition:all .22s ease;
-}
-.loan-card:hover{
-  background:color-mix(in srgb,var(--card) 95%,transparent);
-  border-color:var(--amber);
-  transform:translateY(-2px);
-  box-shadow:0 14px 30px -10px rgba(0,0,0,0.12);
-}
-.loan-badge-row{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-bottom:12px;
-  flex-wrap:wrap;
-}
-.rate-badge{
+.mega-tag{
+  display:block;
   font-size:11px;
   font-weight:600;
-  background:color-mix(in srgb,var(--ink) 6%,transparent);
-  color:var(--ink);
-  padding:2px 8px;
-  border-radius:9999px;
-  border:1px solid color-mix(in srgb,var(--line) 80%,transparent);
-}
-.loan-title{
-  font-size:17px;
-  font-weight:600;
-  color:var(--ink);
-  line-height:1.25;
-  margin:0 0 4px;
-}
-.loan-tagline{
-  font-size:13px;
-  font-weight:500;
-  color:var(--amber);
-  margin:0 0 6px;
-}
-.loan-target{
-  font-size:12.5px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
   color:var(--mute);
-  line-height:1.45;
-  margin:0 0 14px;
+  margin-bottom:18px;
 }
-.loan-bullets{
-  list-style:none;
-  padding:0;
-  margin:0 0 18px;
+.mega-list{
   display:flex;
   flex-direction:column;
-  gap:6px;
+  gap:22px;
 }
-.loan-bullets li{
-  font-size:12.5px;
-  color:var(--ink);
-  opacity:.85;
-  display:flex;
-  align-items:center;
-  gap:8px;
+.mega-grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px 36px;
 }
-.loan-bullets li::before{
-  content:"";
-  width:4px;
-  height:4px;
-  border-radius:50%;
-  background:var(--amber);
-  flex-shrink:0;
+.mega-item{
+  text-decoration:none;
+  display:block;
+  padding:6px 10px;
+  border-radius:8px;
+  transition:background .15s ease;
 }
-.loan-cta{
-  margin-top:auto;
-  font-size:13px;
+.mega-item:hover{
+  background:color-mix(in srgb,var(--ink) 3.5%,transparent);
+}
+.mega-item h4{
+  margin:0 0 5px 0;
+  font-size:14.5px;
   font-weight:600;
   color:var(--ink);
-  display:inline-flex;
-  align-items:center;
-  gap:4px;
-  padding:7px 14px;
-  border-radius:8px;
-  background:color-mix(in srgb,var(--bg) 80%,var(--line));
-  width:fit-content;
-  transition:all .2s ease;
-  text-decoration:none;
+  letter-spacing:-.01em;
+  transition:color .15s ease;
 }
-.loan-card:hover .loan-cta{
-  background:var(--amber);
-  color:#06281c;
+.mega-item:hover h4{
+  color:var(--amber);
+}
+.mega-item p{
+  margin:0;
+  font-size:12.5px;
+  line-height:1.45;
+  color:var(--mute);
 }
 
-@media(max-width:960px){
-  .mega-wrap-3{grid-template-columns:1fr;gap:20px}
+@media(max-width:860px){
+  .mega-layout{grid-template-columns:1fr;gap:24px;padding:24px 20px}
+  .mega-sep{display:none}
+  .mega-grid-2{grid-template-columns:1fr;gap:18px}
 }
 @media(max-width:760px){
   .nav-menu,.nav-actions{display:none}
-  .mega-wrap{grid-template-columns:1fr;gap:28px;padding:24px 16px}
 }
 .btn{background:var(--amber);color:#06281c;border-radius:8px;padding:7px 16px;font-size:13px;font-weight:500;display:inline-block;border:0;cursor:pointer;font-family:inherit}
 h1,h2{font-weight:500;letter-spacing:-.025em;line-height:1.08}
@@ -357,94 +303,72 @@ footer p{margin-top:14px;max-width:900px}
 
   <!-- Full-Width Liquid Glass Mega Dropdown (Banking) -->
   <div class="nav-mega" id="bankingMega">
-    <div class="mega-wrap">
-      <!-- Col 1: Personal Banking -->
-      <div>
-        <span class="mega-col-title">Personal Banking</span>
-        <div class="mega-col-list">
-          <a href="#cta" class="mega-col-item">
-            <span class="m-h">Current Account</span>
-            <span class="m-sub">Perfect for everyday banking needs with zero fees</span>
+    <div class="mega-layout">
+      <!-- Left Column: Platform -->
+      <div class="mega-left">
+        <span class="mega-tag">Platform</span>
+        <div class="mega-list">
+          <a href="#cta" class="mega-item">
+            <h4>Current Account</h4>
+            <p>Perfect for everyday banking with zero fees, no minimum balance, and instant transfers.</p>
           </a>
-          <a href="#savings" class="mega-col-item">
-            <span class="m-h">Savings Account <span class="m-badge">Up to 15%</span></span>
-            <span class="m-sub">High-yield savings with flexible access and goal saving</span>
+          <a href="#about" class="mega-item">
+            <h4>Secure Banking</h4>
+            <p>Bank with confidence knowing deposits are fully CBN licensed and NDIC insured with 24/7 fraud protection.</p>
           </a>
         </div>
       </div>
 
-      <!-- Col 2: Business & Security -->
-      <div>
-        <span class="mega-col-title">Business & Security</span>
-        <div class="mega-col-list">
-          <a href="#products" class="mega-col-item">
-            <span class="m-h">Small Business Banking</span>
-            <span class="m-sub">Tailored solutions for entrepreneurs, traders & POS</span>
+      <!-- Divider -->
+      <div class="mega-sep"></div>
+
+      <!-- Right Column: Products (2-column grid) -->
+      <div class="mega-right">
+        <span class="mega-tag">Products</span>
+        <div class="mega-grid-2">
+          <a href="#products" class="mega-item">
+            <h4>Small Business Banking</h4>
+            <p>Tailored solutions for entrepreneurs and traders, including business accounts, bulk payments, and POS services.</p>
           </a>
-          <a href="#about" class="mega-col-item">
-            <span class="m-h">Secure Banking <span class="m-badge">CBN / NDIC</span></span>
-            <span class="m-sub">Bank with confidence knowing deposits are insured</span>
+          <a href="#savings" class="mega-item">
+            <h4>Savings Account</h4>
+            <p>High-yield savings with flexible access, compound growth, and up to 15% annual interest.</p>
           </a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Full-Width Liquid Glass Mega Dropdown for Loans (3 Columns) -->
+  <!-- Full-Width Liquid Glass Mega Dropdown (Loans) -->
   <div class="nav-mega" id="loansMega">
-    <div class="mega-wrap mega-wrap-3">
-      <!-- Col 1: Quick Business Loans -->
-      <div class="loan-card">
-        <div class="loan-badge-row">
-          <span class="m-badge">₦50k - ₦5M</span>
-          <span class="rate-badge">From 2.5% monthly</span>
+    <div class="mega-layout">
+      <!-- Left Column: Platform -->
+      <div class="mega-left">
+        <span class="mega-tag">Platform</span>
+        <div class="mega-list">
+          <a href="#loans" class="mega-item">
+            <h4>Quick Business Loans</h4>
+            <p>Fast capital for market traders and shop owners (₦50,000 - ₦5,000,000) from 2.5% monthly with 24-hour approval.</p>
+          </a>
         </div>
-        <h4 class="loan-title">Quick Business Loans</h4>
-        <p class="loan-tagline">Fast capital for your business needs</p>
-        <p class="loan-target">Perfect for market traders, shop owners, and small businesses</p>
-        <ul class="loan-bullets">
-          <li>24-hour approval</li>
-          <li>Minimal documentation</li>
-          <li>Flexible repayment</li>
-          <li>No collateral required</li>
-        </ul>
-        <a href="#loans" class="loan-cta">Apply Now →</a>
       </div>
 
-      <!-- Col 2: Salary Advance Loans -->
-      <div class="loan-card">
-        <div class="loan-badge-row">
-          <span class="m-badge">₦20k - ₦500k</span>
-          <span class="rate-badge">From 3% monthly</span>
-        </div>
-        <h4 class="loan-title">Salary Advance Loans</h4>
-        <p class="loan-tagline">Get your salary early when you need it most</p>
-        <p class="loan-target">Ideal for salary earners facing emergencies</p>
-        <ul class="loan-bullets">
-          <li>Same-day disbursement</li>
-          <li>Direct salary deduction</li>
-          <li>Up to 3 months tenure</li>
-          <li>No guarantor needed</li>
-        </ul>
-        <a href="#loans" class="loan-cta">Apply Now →</a>
-      </div>
+      <!-- Divider -->
+      <div class="mega-sep"></div>
 
-      <!-- Col 3: Group Loans -->
-      <div class="loan-card">
-        <div class="loan-badge-row">
-          <span class="m-badge">₦100k - ₦2M</span>
-          <span class="rate-badge">From 2% monthly</span>
+      <!-- Right Column: Products (2-column grid) -->
+      <div class="mega-right">
+        <span class="mega-tag">Products</span>
+        <div class="mega-grid-2">
+          <a href="#loans" class="mega-item">
+            <h4>Salary Advance Loans</h4>
+            <p>Get your salary early when you need it most (₦20,000 - ₦500,000) from 3% monthly with same-day disbursement.</p>
+          </a>
+          <a href="#loans" class="mega-item">
+            <h4>Group Loans</h4>
+            <p>Leverage the power of community lending for cooperatives and trading groups (₦100,000 - ₦2,000,000) from 2% monthly.</p>
+          </a>
         </div>
-        <h4 class="loan-title">Group Loans</h4>
-        <p class="loan-tagline">Leverage the power of community lending</p>
-        <p class="loan-target">Great for cooperatives and trading groups</p>
-        <ul class="loan-bullets">
-          <li>Group guarantee</li>
-          <li>Lower interest rates</li>
-          <li>Flexible terms</li>
-          <li>Financial literacy training</li>
-        </ul>
-        <a href="#loans" class="loan-cta">Apply Now →</a>
       </div>
     </div>
   </div>
