@@ -19,7 +19,9 @@ nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
 .logo{display:flex;gap:8px;align-items:center;font-weight:600;font-size:19px}
 .logo i{width:20px;height:20px;border:3px solid var(--ink);border-radius:5px;display:block}
-.links{display:flex;gap:30px;font-size:13px}
+.links{display:flex;gap:26px;font-size:13px;font-weight:500}
+.links a{transition:color .2s}
+.links a:hover{color:var(--amber)}
 .btn{background:var(--amber);color:#06281c;border-radius:8px;padding:7px 16px;font-size:13px;font-weight:500;display:inline-block;border:0;cursor:pointer;font-family:inherit}
 h1,h2{font-weight:500;letter-spacing:-.025em;line-height:1.08}
 h2 span,h1 span{color:var(--mute)}
@@ -133,7 +135,13 @@ footer p{margin-top:14px;max-width:900px}
 </head>
 <body>
 <nav><div class="wrap"><a class="logo" href="#top"><i></i>Mint</a>
-<div class="links"><a href="#products">Products</a><a href="#app">Mobile app</a><a href="#cta">Contact Us</a></div>
+<div class="links">
+  <a href="#products">Banking</a>
+  <a href="#loans">Loans</a>
+  <a href="#savings">Savings</a>
+  <a href="#about">About</a>
+  <a href="#cta">Contact</a>
+</div>
 <a class="btn" href="#cta">Open account</a></div></nav>
 
 <header class="hero" id="top">
@@ -197,16 +205,16 @@ footer p{margin-top:14px;max-width:900px}
 <div class="pane" id="pane"></div>
 </div></div></section>
 
-<section class="dark"><div class="wrap">
+<section class="dark" id="loans"><div class="wrap">
 <h2>Credit and savings that work as hard as you do</h2>
 <p class="sub">Borrow when your business needs room to grow, and save steadily for the goals ahead.</p>
 <div class="panel"><div><h3>Instant business loans</h3><p>Apply in the app for loans up to ₦10M and repay on a schedule you can plan around.</p></div>
 <div class="chat"><b>Loan application</b><div class="row" style="color:#222"><span>Amount</span><span>₦2,500,000</span></div><div class="row" style="color:#222"><span>Purpose</span><span>Stock purchase</span></div><div class="chips"><span>Fast decision</span><span>Flexible repayment</span></div></div></div>
-<div class="panel"><div><h3>High-yield savings</h3><p>Create goals, fund them as often as you like, and earn interest on every naira you set aside.</p></div>
+<div class="panel" id="savings"><div><h3>High-yield savings</h3><p>Create goals, fund them as often as you like, and earn interest on every naira you set aside.</p></div>
 <div class="chat"><b>Shop rent goal · 72%</b><div class="row" style="color:#222"><span>Saved</span><span>₦360,000</span></div><div class="row" style="color:#222"><span>Target</span><span>₦500,000</span></div><div class="chips"><span>✓ Deposit received</span></div></div></div>
 </div></section>
 
-<section><div class="wrap">
+<section id="about"><div class="wrap">
 <h2>Banking you can trust.</h2>
 <p class="sub">A licensed bank with insured deposits, built for how Nigeria pays.</p>
 <div class="four">
