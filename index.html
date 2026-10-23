@@ -15,71 +15,79 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{background:var(--bg);color:var(--ink);font-family:Outfit,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
-nav{position:sticky;top:0;left:0;right:0;width:100%;z-index:1000;background:var(--card);border-bottom:1px solid var(--line);box-sizing:border-box}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;position:relative}
-.logo{display:flex;gap:8px;align-items:center;font-weight:600;font-size:19px;color:var(--ink)}
-.logo i{width:20px;height:20px;border:3px solid var(--ink);border-radius:5px;display:block}
-.links{display:flex;align-items:center;gap:18px;font-size:13px;font-weight:500}
-.links>a{padding:7px 14px;border-radius:20px;transition:color .2s;color:var(--ink)}
-.links>a:hover{color:var(--mute)}
-
-/* Navigation Dropdown matching the reference image */
-.nav-dropdown{display:inline-flex;align-items:center}
-.nav-btn{background:transparent;color:var(--ink);border:0;padding:7px 16px;border-radius:9999px;font:500 13px Outfit,sans-serif;display:inline-flex;align-items:center;gap:6px;cursor:pointer;transition:all .18s ease}
-.nav-btn.open,.nav-btn:hover{background:var(--ink);color:#fff}
-.nav-caret{width:9px;height:5px;transition:transform .2s ease}
-.nav-btn.open .nav-caret{transform:rotate(180deg)}
-
-/* Full-width flyout dropdown strictly below navbar (NO EMOJIS, NO OVERLAP) */
-.mega-flyout{
-  position:absolute;
-  top:66px;
-  left:0;
-  right:0;
-  width:100%;
+/* Navbar2 Floating Island Container matching 21st.dev component */
+header.navbar-wrap{position:sticky;top:12px;z-index:1000;padding:0 16px;width:100%;box-sizing:border-box}
+.nav-card{
+  max-width:1160px;
+  margin:0 auto;
+  border-radius:24px;
+  border:1px solid var(--line);
   background:var(--card);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  box-shadow:0 24px 48px -12px rgba(0,0,0,0.18);
+  box-shadow:0 1px 2px rgba(0,0,0,0.04),0 16px 36px -8px rgba(0,0,0,0.12);
+  transition:all .3s cubic-bezier(.22,1,.36,1);
+  overflow:hidden;
+}
+.nav-row{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:16px}
+.nav-brand{display:flex;gap:8px;align-items:center;font-weight:600;font-size:19px;color:var(--ink);flex-shrink:0}
+.nav-brand i{width:18px;height:18px;border:3px solid var(--ink);border-radius:5px;display:block}
+.nav-menu{display:flex;align-items:center;gap:4px}
+.nav-pill-btn{
+  background:transparent;
+  color:var(--mute);
+  border:0;
+  padding:7px 14px;
+  border-radius:9999px;
+  font:500 14px Outfit,sans-serif;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  cursor:pointer;
+  transition:all .18s ease;
+}
+.nav-pill-btn:hover,.nav-pill-btn.open{background:color-mix(in srgb,var(--ink) 8%,transparent);color:var(--ink)}
+.nav-pill-btn .chevron{width:12px;height:12px;transition:transform .25s ease}
+.nav-pill-btn.open .chevron{transform:rotate(180deg)}
+.nav-pill-link{padding:7px 14px;border-radius:9999px;font:500 14px Outfit,sans-serif;color:var(--mute);transition:color .2s}
+.nav-pill-link:hover{color:var(--ink)}
+
+.nav-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.nav-lang{position:relative}
+.nav-lang-btn{background:transparent;border:0;font:500 12.5px Outfit,sans-serif;color:var(--mute);display:flex;align-items:center;gap:4px;padding:6px 10px;border-radius:9999px;cursor:pointer}
+.nav-lang-btn:hover{background:color-mix(in srgb,var(--ink) 6%,transparent);color:var(--ink)}
+.btn-sec{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9999px;padding:7px 16px;font:600 12.5px Outfit,sans-serif;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center}
+.btn-sec:hover{background:color-mix(in srgb,var(--ink) 6%,transparent)}
+.btn-pri{background:var(--amber);color:#06281c;border-radius:9999px;padding:7px 18px;font:600 12.5px Outfit,sans-serif;border:0;cursor:pointer;transition:opacity .2s;text-decoration:none;display:inline-flex;align-items:center}
+.btn-pri:hover{opacity:.92}
+
+/* Mega dropdown inside the card */
+.nav-mega{
   display:none;
-  z-index:999;
-  text-align:left;
-  box-sizing:border-box;
+  border-top:1px solid var(--line);
+  background:var(--card);
+  padding:24px 32px 32px;
+  animation:navExpand .25s cubic-bezier(.22,1,.36,1) forwards;
 }
-.mega-flyout.open{
-  display:block;
-  animation:flyoutFade .18s ease forwards;
-}
-@keyframes flyoutFade{
-  from{opacity:0;transform:translateY(-6px)}
-  to{opacity:1;transform:translateY(0)}
-}
+.nav-mega.open{display:block}
+@keyframes navExpand{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 
-.mega-grid{
-  display:grid;
-  grid-template-columns:300px 1px 1fr;
-  gap:40px;
-  align-items:start;
-  padding:36px 0 44px;
-}
-.mega-sep{background:var(--line);width:1px;height:100%;min-height:280px}
-.mega-tag{display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin-bottom:20px}
-.mega-left{display:flex;flex-direction:column;gap:32px}
-.mega-right{display:flex;flex-direction:column}
-.mega-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.mega-entry{display:flex;flex-direction:column}
-.mega-entry h4{font-size:15px;font-weight:600;color:var(--ink);line-height:1.25;margin:0 0 4px}
-.mega-entry p{font-size:13px;color:var(--mute);line-height:1.45;margin:0 0 10px}
-.mega-bullets{list-style:none;padding:0;margin:0 0 14px;display:flex;flex-direction:column;gap:6px}
-.mega-bullets li{font-size:12.5px;color:var(--ink);opacity:.85;display:flex;align-items:center;gap:8px}
-.mega-bullets li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--amber);flex-shrink:0}
-.mega-action{font-size:12.5px;font-weight:500;color:var(--ink);display:inline-flex;align-items:center;gap:4px;transition:color .2s;text-decoration:underline;text-underline-offset:3px}
-.mega-action:hover{color:var(--amber)}
+.mega-grid3{display:grid;grid-template-columns:1fr 1fr 280px;gap:36px;align-items:start}
+.mega-col-title{display:inline-block;border:1px solid var(--line);border-radius:9999px;padding:3px 12px;font-size:11px;font-weight:600;color:var(--mute);margin-bottom:16px;text-transform:uppercase;letter-spacing:.04em}
+.mega-col-list{display:flex;flex-direction:column;gap:14px}
+.mega-col-item{display:flex;flex-direction:column;gap:2px;text-decoration:none}
+.mega-col-item:hover .m-h{color:var(--amber)}
+.m-h{font-size:15px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px;transition:color .2s}
+.m-sub{font-size:12.5px;color:var(--mute);line-height:1.4}
+.m-badge{font-size:10px;font-weight:700;text-transform:uppercase;background:#e8fbf2;color:#18a574;padding:2px 7px;border-radius:9999px}
+.mega-preview{position:relative;height:220px;border-radius:18px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end}
+.mega-preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mega-preview-cap{position:relative;z-index:2;background:linear-gradient(to top,rgba(0,0,0,0.85),transparent);padding:18px 14px 12px;color:#fff;font-size:12px;font-weight:500}
 
-@media(max-width:900px){
-  .mega-grid{grid-template-columns:1fr;gap:28px}
-  .mega-sep{display:none}
-  .mega-cols{grid-template-columns:1fr;gap:24px}
+@media(max-width:960px){
+  .mega-grid3{grid-template-columns:1fr 1fr}
+  .mega-preview{display:none}
+}
+@media(max-width:760px){
+  .nav-menu,.nav-actions{display:none}
 }
 .btn{background:var(--amber);color:#06281c;border-radius:8px;padding:7px 16px;font-size:13px;font-weight:500;display:inline-block;border:0;cursor:pointer;font-family:inherit}
 h1,h2{font-weight:500;letter-spacing:-.025em;line-height:1.08}
@@ -193,92 +201,81 @@ footer p{margin-top:14px;max-width:900px}
 </style>
 </head>
 <body>
-<nav id="mainNav">
-  <div class="wrap">
-    <a class="logo" href="#top"><i></i>Mint</a>
-    <div class="links">
-      <div class="nav-dropdown" id="bankingDropdown">
-        <button class="nav-btn" id="bankingBtn" aria-expanded="false" aria-controls="bankingMenu">
+<header class="navbar-wrap">
+  <div class="nav-card">
+    <div class="nav-row">
+      <!-- Logo -->
+      <a class="nav-brand" href="#top"><i></i>Mint</a>
+
+      <!-- Desktop nav links -->
+      <nav class="nav-menu">
+        <button class="nav-pill-btn" id="bankingBtn" aria-expanded="false" type="button">
           Banking
-          <svg class="nav-caret" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="chevron" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         </button>
+        <a class="nav-pill-link" href="#loans">Loans</a>
+        <a class="nav-pill-link" href="#savings">Savings</a>
+        <a class="nav-pill-link" href="#about">About</a>
+        <a class="nav-pill-link" href="#cta">Contact</a>
+      </nav>
+
+      <!-- Right actions -->
+      <div class="nav-actions">
+        <div class="nav-lang">
+          <button class="nav-lang-btn" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            EN
+          </button>
+        </div>
+        <a class="btn-sec" href="#app">Sign In</a>
+        <a class="btn-pri" href="#cta">Open account</a>
       </div>
-      <a href="#loans">Loans</a>
-      <a href="#savings">Savings</a>
-      <a href="#about">About</a>
-      <a href="#cta">Contact</a>
     </div>
-    <a class="btn" href="#cta">Open account</a>
-  </div>
 
-  <!-- Full-Width Dropdown Attached Under Nav (Exact Reah Layout, No Emojis) -->
-  <div class="mega-flyout" id="bankingMenu" role="region" aria-label="Banking menu">
-    <div class="wrap">
-      <div class="mega-grid">
-        <!-- Platform Column -->
-        <div class="mega-left">
-          <span class="mega-tag">Platform</span>
-
-          <div class="mega-entry">
-            <h4>Current Account</h4>
-            <p>Perfect for everyday banking needs with zero fees</p>
-            <ul class="mega-bullets">
-              <li>No minimum balance</li>
-              <li>Free debit card</li>
-              <li>Instant transfers</li>
-              <li>Mobile banking</li>
-            </ul>
-            <a href="#cta" class="mega-action">Open Account →</a>
-          </div>
-
-          <div class="mega-entry">
-            <h4>Secure Banking</h4>
-            <p>Bank with confidence knowing your money is safe</p>
-            <ul class="mega-bullets">
-              <li>CBN licensed</li>
-              <li>NDIC insured</li>
-              <li>24/7 monitoring</li>
-              <li>Fraud protection</li>
-            </ul>
-            <a href="#about" class="mega-action">Security Info →</a>
+    <!-- Mega Menu Panel matching Navbar2 -->
+    <div class="nav-mega" id="bankingMega">
+      <div class="mega-grid3">
+        <!-- Col 1 -->
+        <div>
+          <span class="mega-col-title">Personal Banking</span>
+          <div class="mega-col-list">
+            <a href="#cta" class="mega-col-item">
+              <span class="m-h">Current Account</span>
+              <span class="m-sub">Perfect for everyday banking needs with zero fees</span>
+            </a>
+            <a href="#savings" class="mega-col-item">
+              <span class="m-h">Savings Account <span class="m-badge">Up to 15%</span></span>
+              <span class="m-sub">High-yield savings with flexible access and goal saving</span>
+            </a>
           </div>
         </div>
 
-        <div class="mega-sep"></div>
+        <!-- Col 2 -->
+        <div>
+          <span class="mega-col-title">Business & Security</span>
+          <div class="mega-col-list">
+            <a href="#products" class="mega-col-item">
+              <span class="m-h">Small Business Banking</span>
+              <span class="m-sub">Tailored solutions for entrepreneurs, traders & POS</span>
+            </a>
+            <a href="#about" class="mega-col-item">
+              <span class="m-h">Secure Banking <span class="m-badge">CBN / NDIC</span></span>
+              <span class="m-sub">Bank with confidence knowing deposits are insured</span>
+            </a>
+          </div>
+        </div>
 
-        <!-- Products Columns -->
-        <div class="mega-right">
-          <span class="mega-tag">Products</span>
-          <div class="mega-cols">
-            <div class="mega-entry">
-              <h4>Small Business Banking</h4>
-              <p>Tailored solutions for entrepreneurs and traders</p>
-              <ul class="mega-bullets">
-                <li>Business accounts</li>
-                <li>Bulk payments</li>
-                <li>POS services</li>
-                <li>Business loans</li>
-              </ul>
-              <a href="#products" class="mega-action">Learn More →</a>
-            </div>
-
-            <div class="mega-entry">
-              <h4>Savings Account</h4>
-              <p>High-yield savings with flexible access</p>
-              <ul class="mega-bullets">
-                <li>Up to 15% interest</li>
-                <li>Easy withdrawals</li>
-                <li>Goal-based saving</li>
-                <li>Compound growth</li>
-              </ul>
-              <a href="#savings" class="mega-action">Start Saving →</a>
-            </div>
+        <!-- Col 3: Visual Preview Card -->
+        <div class="mega-preview">
+          <img src="https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80" alt="Mint Mobile Banking" />
+          <div class="mega-preview-cap">
+            Digital banking for Nigerians and the businesses they run
           </div>
         </div>
       </div>
     </div>
   </div>
-</nav>
+</header>
 
 <header class="hero" id="top">
   <div class="scroll-container" id="scrollContainer">
@@ -420,55 +417,37 @@ function count(n){const v=+n.dataset.count,d=+n.dataset.dec,t0=performance.now()
 if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');el.addEventListener('transitionend',()=>el.classList.remove('rv'),{once:true});el.querySelectorAll('[data-count]').forEach(count);io.unobserve(el)}),{threshold:.15});
 document.querySelectorAll('.card,.panel,.dash .p,section h2,.sub,.team').forEach(el=>{el.style.setProperty('--d',Array.from(el.parentNode.children).indexOf(el)*.08+'s');el.classList.add('rv');io.observe(el)})}
-// Banking dropdown behavior
+// Navbar2 dropdown controller
 const bankingBtn = document.getElementById('bankingBtn');
-const bankingMenu = document.getElementById('bankingMenu');
-let menuTimeout = null;
+const bankingMega = document.getElementById('bankingMega');
 
-function setMenu(open) {
-  if (!bankingBtn || !bankingMenu) return;
-  clearTimeout(menuTimeout);
-  bankingBtn.classList.toggle('open', open);
-  bankingMenu.classList.toggle('open', open);
-  bankingBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+function toggleMega(force) {
+  if (!bankingBtn || !bankingMega) return;
+  const isCurrentlyOpen = bankingMega.classList.contains('open');
+  const next = typeof force === 'boolean' ? force : !isCurrentlyOpen;
+  bankingBtn.classList.toggle('open', next);
+  bankingMega.classList.toggle('open', next);
+  bankingBtn.setAttribute('aria-expanded', next ? 'true' : 'false');
 }
 
-if (bankingBtn && bankingMenu) {
+if (bankingBtn && bankingMega) {
   bankingBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    const isOpen = bankingMenu.classList.contains('open');
-    setMenu(!isOpen);
-  });
-
-  bankingBtn.addEventListener('mouseenter', () => setMenu(true));
-  bankingMenu.addEventListener('mouseenter', () => {
-    clearTimeout(menuTimeout);
-  });
-
-  bankingBtn.addEventListener('mouseleave', () => {
-    menuTimeout = setTimeout(() => {
-      if (!bankingMenu.matches(':hover')) setMenu(false);
-    }, 150);
-  });
-
-  bankingMenu.addEventListener('mouseleave', () => {
-    menuTimeout = setTimeout(() => {
-      setMenu(false);
-    }, 150);
+    toggleMega();
   });
 
   document.addEventListener('click', (e) => {
-    if (!bankingMenu.contains(e.target) && !bankingBtn.contains(e.target)) {
-      setMenu(false);
+    if (!bankingMega.contains(e.target) && !bankingBtn.contains(e.target)) {
+      toggleMega(false);
     }
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setMenu(false);
+    if (e.key === 'Escape') toggleMega(false);
   });
 
-  bankingMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => setMenu(false));
+  bankingMega.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => toggleMega(false));
   });
 }
 
