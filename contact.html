@@ -14,14 +14,17 @@
   --card:#fff;
   --line:#e8e5df;
   --amber:#4fd69c;
+  --amber-dark:#18a574;
   --amber2:#fde7b0;
-  --gold:#f5a623;
   --dark:#0e1013;
+  --mint-soft:#c9f4e0;
   box-sizing:border-box;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
-  background:var(--bg);
+  background:
+    radial-gradient(85% 55% at 50% -8%, #c9f4e0 0%, rgba(201, 244, 224, 0.42) 48%, var(--bg) 88%),
+    var(--bg);
   color:var(--ink);
   font-family:Outfit,system-ui,sans-serif;
   line-height:1.5;
@@ -244,7 +247,7 @@ header.navbar-wrap.scrolled{
   transition:color .15s ease;
 }
 .mega-item:hover h4{
-  color:var(--amber);
+  color:var(--amber-dark);
 }
 .mega-item p{
   margin:0;
@@ -268,7 +271,7 @@ header.navbar-wrap.scrolled{
   max-width:1160px;
   width:100%;
   margin:0 auto;
-  padding:56px 24px 80px;
+  padding:50px 24px 80px;
   display:grid;
   grid-template-columns:1.02fr 1.08fr;
   gap:56px;
@@ -285,21 +288,23 @@ header.navbar-wrap.scrolled{
 .contact-pill-tag{
   display:inline-flex;
   align-items:center;
-  gap:6px;
-  background:#e8fbf2;
-  color:#18a574;
-  padding:4px 12px;
+  gap:8px;
+  background:#d5f7e7;
+  color:#117552;
+  padding:5px 14px;
   border-radius:9999px;
-  font-size:12px;
+  font-size:12.5px;
   font-weight:600;
   width:fit-content;
   margin-bottom:20px;
+  border:1px solid #b3efd3;
 }
 .contact-pill-tag i{
-  width:6px;
-  height:6px;
+  width:7px;
+  height:7px;
   border-radius:50%;
   background:#18a574;
+  box-shadow:0 0 8px #18a574;
 }
 .contact-title{
   font-size:clamp(36px,4.5vw,56px);
@@ -307,7 +312,7 @@ header.navbar-wrap.scrolled{
   line-height:1.08;
   letter-spacing:-.025em;
   color:var(--ink);
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 .contact-title span{
   color:var(--mute);
@@ -315,9 +320,9 @@ header.navbar-wrap.scrolled{
 .contact-sub{
   font-size:16.5px;
   line-height:1.55;
-  color:var(--mute);
+  color:#3f5a4e;
   max-width:480px;
-  margin-bottom:44px;
+  margin-bottom:38px;
 }
 
 /* Contact Info Quick Badges */
@@ -325,13 +330,15 @@ header.navbar-wrap.scrolled{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:16px;
-  margin-bottom:40px;
+  margin-bottom:38px;
 }
 .c-detail-item{
-  background:var(--card);
+  background:color-mix(in srgb,var(--card) 92%,transparent);
+  backdrop-filter:blur(10px);
   border:1px solid var(--line);
   border-radius:14px;
   padding:14px 16px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.02);
 }
 .c-detail-item small{
   display:block;
@@ -354,17 +361,17 @@ header.navbar-wrap.scrolled{
 }
 .built-tag{
   display:block;
-  font-size:12px;
+  font-size:11.5px;
   font-weight:600;
   color:var(--mute);
-  margin-bottom:14px;
+  margin-bottom:12px;
   text-transform:uppercase;
-  letter-spacing:.05em;
+  letter-spacing:.06em;
 }
 .partner-logos{
   display:flex;
   align-items:center;
-  gap:22px;
+  gap:20px;
   flex-wrap:wrap;
 }
 .logo-item{
@@ -374,30 +381,31 @@ header.navbar-wrap.scrolled{
   font-size:13.5px;
   font-weight:600;
   color:var(--ink);
-  opacity:.85;
+  opacity:.88;
 }
 .logo-item svg{
-  color:var(--ink);
+  color:var(--amber-dark);
 }
 
-/* Right Column: Radiant Warm Gradient Container matching reference */
+/* Right Column: Signature Mint Radiant Gradient Container */
 .contact-right{
   position:relative;
 }
 .gradient-aura-box{
   background:
-    radial-gradient(ellipse at 88% 18%, #f69d3c 0%, #e85d26 34%, #1a1716 78%, #0f1214 100%),
-    radial-gradient(circle at 12% 50%, #f37f30 0%, transparent 42%),
-    #131719;
-  border-radius:30px;
+    radial-gradient(ellipse at 88% 18%, #4fd69c 0%, #18a574 32%, #0e3528 72%, #081711 100%),
+    radial-gradient(circle at 14% 54%, rgba(253, 231, 176, 0.55) 0%, transparent 46%),
+    #0a1d15;
+  border-radius:32px;
   padding:32px;
-  box-shadow:0 30px 60px -15px rgba(232,93,38,0.22), 0 20px 40px -10px rgba(0,0,0,0.18);
+  box-shadow:0 30px 60px -15px rgba(24,165,116,0.30), 0 20px 40px -10px rgba(0,0,0,0.18);
+  border:1px solid rgba(79,214,156,0.22);
 }
 .form-card{
   background:#ffffff;
   border-radius:20px;
   padding:32px 28px;
-  box-shadow:0 4px 6px -1px rgba(0,0,0,0.05), 0 20px 25px -5px rgba(0,0,0,0.08);
+  box-shadow:0 4px 6px -1px rgba(0,0,0,0.06), 0 20px 25px -5px rgba(0,0,0,0.08);
 }
 .contact-form{
   display:flex;
@@ -437,8 +445,8 @@ header.navbar-wrap.scrolled{
 .form-select:focus,
 .form-textarea:focus{
   background:#ffffff;
-  border-color:#e85d26;
-  box-shadow:0 0 0 3px rgba(232,93,38,0.15);
+  border-color:#18a574;
+  box-shadow:0 0 0 3px rgba(24,165,116,0.15);
 }
 .form-select{
   appearance:none;
@@ -455,7 +463,7 @@ header.navbar-wrap.scrolled{
 .submit-btn{
   margin-top:4px;
   width:100%;
-  background:#f5a623;
+  background:var(--amber);
   color:#06281c;
   border:0;
   border-radius:9px;
@@ -465,10 +473,10 @@ header.navbar-wrap.scrolled{
   font-family:Outfit,sans-serif;
   cursor:pointer;
   transition:all .18s ease;
-  box-shadow:0 1px 2px rgba(0,0,0,0.06);
+  box-shadow:0 1px 3px rgba(0,0,0,0.08);
 }
 .submit-btn:hover{
-  background:#e59a1e;
+  background:#3fc48c;
   transform:translateY(-1px);
 }
 .submit-btn:active{
@@ -489,9 +497,10 @@ header.navbar-wrap.scrolled{
 
 /* Footer matching Mint */
 footer{
-  background:var(--card);
-  border-top:1px solid var(--line);
-  padding:44px 0 32px;
+  background:#0f1714;
+  color:#9aa6a0;
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding:48px 0 36px;
   margin-top:auto;
 }
 footer .wrap{
@@ -511,13 +520,13 @@ footer .wrap{
   align-items:center;
   font-weight:600;
   font-size:19px;
-  color:var(--ink);
+  color:#ffffff;
   text-decoration:none;
 }
 .footer-logo i{
   width:18px;
   height:18px;
-  border:3px solid var(--ink);
+  border:3px solid #ffffff;
   border-radius:5px;
   display:block;
 }
@@ -526,25 +535,25 @@ footer h4{
   font-weight:600;
   text-transform:uppercase;
   letter-spacing:.04em;
-  color:var(--ink);
+  color:#ffffff;
   margin-bottom:14px;
 }
 footer a{
   display:block;
   font-size:13.5px;
-  color:var(--mute);
+  color:#9aa6a0;
   text-decoration:none;
   margin-bottom:9px;
   transition:color .18s;
 }
 footer a:hover{
-  color:var(--ink);
+  color:#ffffff;
 }
 .disclaimer{
   font-size:12px;
-  color:var(--mute);
+  color:#67746e;
   line-height:1.55;
-  border-top:1px solid var(--line);
+  border-top:1px solid rgba(255,255,255,0.08);
   padding-top:20px;
 }
 
@@ -552,7 +561,7 @@ footer a:hover{
   .contact-section{
     grid-template-columns:1fr;
     gap:40px;
-    padding:40px 20px 60px;
+    padding:36px 20px 60px;
   }
   .contact-left{padding-right:0}
   .gradient-aura-box{padding:22px;border-radius:24px}
@@ -695,18 +704,18 @@ footer a:hover{
   </div>
 </header>
 
-<!-- Main Contact Hero Section (Mint Brand & Content + Reference Layout) -->
+<!-- Main Contact Section: Mint Landing Page Background + Creative Emerald Aura -->
 <main class="contact-section">
-  <!-- Left Column: Mint Banking Brand Info -->
+  <!-- Left Column: Mint Brand Information -->
   <div class="contact-left">
-    <div class="contact-pill-tag"><i></i> CBN Licensed &middot; NDIC Insured</div>
+    <div class="contact-pill-tag"><i></i> Port Harcourt Desk &middot; Live Response</div>
     <h1 class="contact-title">Digital banking for Nigerians<br><span>and the businesses they run.</span></h1>
-    <p class="contact-sub">Have questions about our personal accounts, quick business loans, high-yield savings, or merchant POS? Send our Port Harcourt team a message and we'll assist you immediately.</p>
+    <p class="contact-sub">Have questions about opening an account, accessing business capital, or growing with high-yield savings? Reach out to our banking specialists and we'll assist you promptly.</p>
 
-    <!-- Quick Direct Contact Details -->
+    <!-- Direct Contact Details -->
     <div class="contact-details-row">
       <div class="c-detail-item">
-        <small>Branch Location</small>
+        <small>Head Office</small>
         <span>Port Harcourt, Rivers State</span>
       </div>
       <div class="c-detail-item">
@@ -739,7 +748,7 @@ footer a:hover{
     </div>
   </div>
 
-  <!-- Right Column: Sunset Gradient Shell with White Form Card -->
+  <!-- Right Column: Creative Emerald & Amber Aura Container -->
   <div class="contact-right">
     <div class="gradient-aura-box">
       <div class="form-card" id="contactForm">
@@ -800,8 +809,8 @@ footer a:hover{
     <div class="footer-cols">
       <div>
         <a class="footer-logo" href="index.html"><i></i>Mint</a>
-        <p style="margin-top:12px;font-size:13.5px;color:var(--mute)">&copy; Mint Microfinance Bank Ltd. All rights reserved.</p>
-        <p style="margin-top:4px;font-size:12.5px;color:var(--mute)">Head Office: Port Harcourt, Rivers State, Nigeria.</p>
+        <p style="margin-top:12px;font-size:13.5px;color:#9aa6a0">&copy; Mint Microfinance Bank Ltd. All rights reserved.</p>
+        <p style="margin-top:4px;font-size:12.5px;color:#9aa6a0">Head Office: Port Harcourt, Rivers State, Nigeria.</p>
       </div>
       <div>
         <h4>Company</h4>
