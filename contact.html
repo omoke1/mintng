@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us — Mint Microfinance Bank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbfbf9;
+  --card:#ffffff;
+  --ink:#0e1e17;
+  --mute:#64746d;
+  --amber:#e59a1e;
+  --amber-btn:#f5a623;
+  --line:#e5e9e5;
+  --pill-bg:#f1f4f1;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Full-width Liquid Glass Navbar */
+header.navbar-wrap{
+  position:sticky;
+  top:0;
+  z-index:9999;
+  width:100%;
+  background:color-mix(in srgb,var(--bg) 80%,transparent);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid color-mix(in srgb,var(--line) 75%,transparent);
+  transition:all .25s ease;
+}
+header.navbar-wrap.scrolled{
+  background:color-mix(in srgb,var(--card) 90%,transparent);
+  box-shadow:0 10px 30px -10px rgba(0,0,0,0.06);
+}
+.nav-row{
+  max-width:1240px;
+  margin:0 auto;
+  padding:14px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+/* Logo */
+.nav-brand{
+  font-weight:700;
+  font-size:20px;
+  letter-spacing:-.02em;
+  color:var(--ink);
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  flex-shrink:0;
+}
+.nav-brand i{
+  width:20px;
+  height:20px;
+  border-radius:6px;
+  background:var(--amber);
+  display:inline-block;
+}
+
+/* Nav Menu Pills */
+.nav-menu{
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.nav-pill-btn{
+  background:transparent;
+  border:0;
+  cursor:pointer;
+  font-family:inherit;
+  font-size:14.5px;
+  font-weight:500;
+  color:var(--mute);
+  padding:8px 16px;
+  border-radius:9999px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  transition:all .18s ease;
+}
+.nav-pill-btn:hover,
+.nav-pill-btn.open{
+  background:var(--pill-bg);
+  color:var(--ink);
+}
+.nav-pill-btn .chevron{
+  width:10px;
+  height:10px;
+  transition:transform .2s ease;
+}
+.nav-pill-btn.open .chevron{
+  transform:rotate(180deg);
+}
+
+.nav-pill-link{
+  font-size:14.5px;
+  font-weight:500;
+  color:var(--mute);
+  text-decoration:none;
+  padding:8px 16px;
+  border-radius:9999px;
+  transition:all .18s ease;
+}
+.nav-pill-link:hover,
+.nav-pill-link.active{
+  background:var(--pill-bg);
+  color:var(--ink);
+}
+
+/* Nav Actions */
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+}
+.nav-lang-btn{
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--mute);
+  border-radius:9999px;
+  padding:6px 12px;
+  font-size:13px;
+  font-weight:500;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  cursor:pointer;
+}
+.btn-sec{
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--ink);
+  border-radius:9999px;
+  padding:7px 18px;
+  font-size:13.5px;
+  font-weight:500;
+  text-decoration:none;
+  transition:all .18s;
+}
+.btn-sec:hover{
+  background:var(--pill-bg);
+}
+.btn-pri{
+  background:var(--amber-btn);
+  color:#06281c;
+  border-radius:9999px;
+  padding:7px 18px;
+  font-size:13.5px;
+  font-weight:600;
+  text-decoration:none;
+  transition:opacity .18s;
+}
+.btn-pri:hover{
+  opacity:.92;
+}
+
+/* Full-width liquid glass mega dropdown */
+.nav-mega{
+  display:none;
+  width:100%;
+  background:color-mix(in srgb,var(--card) 88%,transparent);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-top:1px solid color-mix(in srgb,var(--line) 60%,transparent);
+  box-shadow:0 24px 48px -12px rgba(0,0,0,0.12);
+  animation:navExpand .22s cubic-bezier(.22,1,.36,1) forwards;
+}
+.nav-mega.open{display:block}
+@keyframes navExpand{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+
+.mega-layout{
+  max-width:1080px;
+  margin:0 auto;
+  padding:32px 28px 36px;
+  display:grid;
+  grid-template-columns:1fr 1px 2fr;
+  gap:40px;
+  align-items:stretch;
+}
+.mega-sep{
+  width:1px;
+  background:color-mix(in srgb,var(--line) 70%,transparent);
+  height:100%;
+}
+.mega-tag{
+  display:block;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--mute);
+  margin-bottom:18px;
+}
+.mega-list{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+.mega-grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px 36px;
+}
+.mega-item{
+  text-decoration:none;
+  display:block;
+  padding:6px 10px;
+  border-radius:8px;
+  transition:background .15s ease;
+}
+.mega-item:hover{
+  background:color-mix(in srgb,var(--ink) 3.5%,transparent);
+}
+.mega-item h4{
+  margin:0 0 5px 0;
+  font-size:14.5px;
+  font-weight:600;
+  color:var(--ink);
+  letter-spacing:-.01em;
+  transition:color .15s ease;
+}
+.mega-item:hover h4{
+  color:var(--amber);
+}
+.mega-item p{
+  margin:0;
+  font-size:12.5px;
+  line-height:1.45;
+  color:var(--mute);
+}
+
+@media(max-width:860px){
+  .mega-layout{grid-template-columns:1fr;gap:24px;padding:24px 20px}
+  .mega-sep{display:none}
+  .mega-grid-2{grid-template-columns:1fr;gap:18px}
+}
+@media(max-width:760px){
+  .nav-menu,.nav-actions{display:none}
+}
+
+/* Contact Page Main Hero Section */
+.contact-section{
+  flex:1;
+  max-width:1260px;
+  width:100%;
+  margin:0 auto;
+  padding:60px 32px 80px;
+  display:grid;
+  grid-template-columns:1fr 1.08fr;
+  gap:64px;
+  align-items:center;
+}
+
+/* Left Column */
+.contact-left{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-right:20px;
+}
+.contact-title{
+  font-size:clamp(40px,4.8vw,62px);
+  font-weight:700;
+  line-height:1.06;
+  letter-spacing:-.03em;
+  color:var(--ink);
+  margin-bottom:24px;
+}
+.contact-sub{
+  font-size:17px;
+  line-height:1.55;
+  color:var(--mute);
+  max-width:480px;
+  margin-bottom:64px;
+}
+.built-section{
+  margin-top:auto;
+}
+.built-tag{
+  display:block;
+  font-size:12px;
+  font-weight:500;
+  color:#737373;
+  margin-bottom:18px;
+  letter-spacing:-.01em;
+}
+.partner-logos{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  flex-wrap:wrap;
+}
+.logo-item{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-size:14.5px;
+  font-weight:700;
+  letter-spacing:-.02em;
+  color:#171717;
+  opacity:.9;
+}
+
+/* Right Column: Glowing Sunset Card Shell */
+.contact-right{
+  position:relative;
+}
+.gradient-aura-box{
+  background:
+    radial-gradient(ellipse at 88% 18%, #f69d3c 0%, #e85d26 32%, #1a1716 78%, #0f1214 100%),
+    radial-gradient(circle at 12% 50%, #f37f30 0%, transparent 40%),
+    #131719;
+  border-radius:32px;
+  padding:36px;
+  box-shadow:0 30px 60px -15px rgba(232,93,38,0.22), 0 20px 40px -10px rgba(0,0,0,0.18);
+}
+.form-card{
+  background:#ffffff;
+  border-radius:22px;
+  padding:34px 32px;
+  box-shadow:0 4px 6px -1px rgba(0,0,0,0.05), 0 20px 25px -5px rgba(0,0,0,0.08);
+}
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.form-group{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.form-label{
+  font-size:13px;
+  font-weight:600;
+  color:#1f2937;
+  letter-spacing:-.01em;
+}
+.form-input,
+.form-select,
+.form-textarea{
+  width:100%;
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+  border-radius:8px;
+  padding:10px 14px;
+  font-size:13.5px;
+  font-family:inherit;
+  color:#111827;
+  outline:none;
+  transition:all .18s ease;
+}
+.form-input::placeholder,
+.form-textarea::placeholder{
+  color:#9ca3af;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus{
+  background:#ffffff;
+  border-color:var(--amber);
+  box-shadow:0 0 0 3px rgba(245,166,35,0.18);
+}
+.form-select{
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  padding-right:34px;
+  cursor:pointer;
+}
+.form-textarea{
+  resize:vertical;
+  min-height:85px;
+}
+.submit-btn{
+  margin-top:6px;
+  width:100%;
+  background:var(--amber-btn);
+  color:#111827;
+  border:0;
+  border-radius:10px;
+  padding:13px 20px;
+  font-size:14.5px;
+  font-weight:600;
+  font-family:inherit;
+  cursor:pointer;
+  transition:all .18s ease;
+  box-shadow:0 1px 2px rgba(0,0,0,0.06);
+}
+.submit-btn:hover{
+  background:#e59a1e;
+  transform:translateY(-1px);
+}
+.submit-btn:active{
+  transform:translateY(0);
+}
+
+/* Success state message */
+.form-success{
+  display:none;
+  text-align:center;
+  padding:24px 16px;
+  background:#e8fbf2;
+  border:1px solid #b7f1d4;
+  border-radius:12px;
+  color:#0f5132;
+  font-size:14px;
+  font-weight:500;
+}
+
+@media(max-width:980px){
+  .contact-section{
+    grid-template-columns:1fr;
+    gap:44px;
+    padding:40px 20px 60px;
+  }
+  .contact-left{
+    padding-right:0;
+  }
+  .contact-sub{
+    margin-bottom:36px;
+  }
+  .gradient-aura-box{
+    padding:24px;
+    border-radius:24px;
+  }
+  .form-card{
+    padding:26px 22px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Liquid Glass Header Navigation -->
+<header class="navbar-wrap" id="mainNav">
+  <div class="nav-row">
+    <!-- Logo -->
+    <a class="nav-brand" href="index.html"><i></i>Mint</a>
+
+    <!-- Desktop nav links -->
+    <nav class="nav-menu">
+      <button class="nav-pill-btn" id="bankingBtn" aria-expanded="false" type="button">
+        Banking
+        <svg class="chevron" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <button class="nav-pill-btn" id="loansBtn" aria-expanded="false" type="button">
+        Loans
+        <svg class="chevron" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <button class="nav-pill-btn" id="savingsBtn" aria-expanded="false" type="button">
+        Savings
+        <svg class="chevron" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <a class="nav-pill-link active" href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Right actions -->
+    <div class="nav-actions">
+      <div class="nav-lang">
+        <button class="nav-lang-btn" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          EN
+        </button>
+      </div>
+      <a class="btn-sec" href="index.html#app">Sign In</a>
+      <a class="btn-pri" href="#contactForm">Get in touch</a>
+    </div>
+  </div>
+
+  <!-- Full-Width Liquid Glass Mega Dropdown (Banking) -->
+  <div class="nav-mega" id="bankingMega">
+    <div class="mega-layout">
+      <div class="mega-left">
+        <span class="mega-tag">Platform</span>
+        <div class="mega-list">
+          <a href="index.html#cta" class="mega-item">
+            <h4>Current Account</h4>
+            <p>Perfect for everyday banking with zero fees, no minimum balance, and instant transfers.</p>
+          </a>
+          <a href="index.html#about" class="mega-item">
+            <h4>Secure Banking</h4>
+            <p>Bank with confidence knowing deposits are fully CBN licensed and NDIC insured with 24/7 fraud protection.</p>
+          </a>
+        </div>
+      </div>
+      <div class="mega-sep"></div>
+      <div class="mega-right">
+        <span class="mega-tag">Products</span>
+        <div class="mega-grid-2">
+          <a href="index.html#products" class="mega-item">
+            <h4>Small Business Banking</h4>
+            <p>Tailored solutions for entrepreneurs and traders, including business accounts, bulk payments, and POS services.</p>
+          </a>
+          <a href="index.html#savings" class="mega-item">
+            <h4>Savings Account</h4>
+            <p>High-yield savings with flexible access, compound growth, and up to 15% annual interest.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-Width Liquid Glass Mega Dropdown (Loans) -->
+  <div class="nav-mega" id="loansMega">
+    <div class="mega-layout">
+      <div class="mega-left">
+        <span class="mega-tag">Platform</span>
+        <div class="mega-list">
+          <a href="index.html#loans" class="mega-item">
+            <h4>Quick Business Loans</h4>
+            <p>Fast capital for market traders and shop owners (₦50,000 - ₦5,000,000) from 2.5% monthly with 24-hour approval.</p>
+          </a>
+        </div>
+      </div>
+      <div class="mega-sep"></div>
+      <div class="mega-right">
+        <span class="mega-tag">Products</span>
+        <div class="mega-grid-2">
+          <a href="index.html#loans" class="mega-item">
+            <h4>Salary Advance Loans</h4>
+            <p>Get your salary early when you need it most (₦20,000 - ₦500,000) from 3% monthly with same-day disbursement.</p>
+          </a>
+          <a href="index.html#loans" class="mega-item">
+            <h4>Group Loans</h4>
+            <p>Leverage the power of community lending for cooperatives and trading groups (₦100,000 - ₦2,000,000) from 2% monthly.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-Width Liquid Glass Mega Dropdown (Savings) -->
+  <div class="nav-mega" id="savingsMega">
+    <div class="mega-layout">
+      <div class="mega-left">
+        <span class="mega-tag">Platform</span>
+        <div class="mega-list">
+          <a href="index.html#savings" class="mega-item">
+            <h4>Regular Savings Account</h4>
+            <p>Flexible savings with easy access to your money. Up to 8% p.a., ₦0 minimum balance, easy withdrawals, mobile banking and debit card access.</p>
+          </a>
+        </div>
+      </div>
+      <div class="mega-sep"></div>
+      <div class="mega-right">
+        <span class="mega-tag">Products</span>
+        <div class="mega-grid-2">
+          <a href="index.html#savings" class="mega-item">
+            <h4>Mint Save Account</h4>
+            <p>High-yield savings with tiered interest up to 15% p.a. (10% 1-6mo, 12% 6-12mo, 15% 12+mo), compound growth, and ₦10,000 minimum.</p>
+          </a>
+          <a href="index.html#savings" class="mega-item">
+            <h4>Goal-Based Savings</h4>
+            <p>Save for specific goals with automated deposits, real-time goal tracking, milestone rewards, and up to 12% p.a. from ₦5,000.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Contact Hero matching the exact reference image -->
+<main class="contact-section">
+  <!-- Left Column -->
+  <div class="contact-left">
+    <h1 class="contact-title">Unify Your<br>Finance Stack</h1>
+    <p class="contact-sub">Global banking, treasury, and cards—all on one platform, built for growing businesses and individuals across Nigeria and beyond.</p>
+
+    <div class="built-section">
+      <span class="built-tag">Built with the best</span>
+      <div class="partner-logos">
+        <div class="logo-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z"/></svg>
+          Spark
+        </div>
+        <div class="logo-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="7" cy="12" r="3"/><circle cx="17" cy="12" r="3"/><path d="M10 12h4"/></svg>
+          turnkey
+        </div>
+        <div class="logo-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>
+          CIRCLE
+        </div>
+        <div class="logo-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>
+          PAXOS
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column: Sunset Gradient Shell with White Form Card -->
+  <div class="contact-right">
+    <div class="gradient-aura-box">
+      <div class="form-card" id="contactForm">
+        <form class="contact-form" id="inquiryForm" onsubmit="event.preventDefault(); document.getElementById('formSuccess').style.display='block'; this.style.display='none';">
+          <div class="form-group">
+            <label class="form-label">Name*</label>
+            <input class="form-input" type="text" placeholder="Name" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email*</label>
+            <input class="form-input" type="email" placeholder="Email" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Company Name*</label>
+            <input class="form-input" type="text" placeholder="Company Name" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Company Website*</label>
+            <input class="form-input" type="text" placeholder="Company Website" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Incorporation Country*</label>
+            <select class="form-select" required>
+              <option value="" disabled selected>Select...</option>
+              <option value="NG">Nigeria</option>
+              <option value="GH">Ghana</option>
+              <option value="KE">Kenya</option>
+              <option value="UK">United Kingdom</option>
+              <option value="US">United States</option>
+              <option value="CA">Canada</option>
+              <option value="OTHER">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Your Message</label>
+            <textarea class="form-textarea" placeholder="Your Message"></textarea>
+          </div>
+
+          <button class="submit-btn" type="submit">Get in touch</button>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          Thank you! Your message has been received. Our team will get in touch shortly.
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+// Nav Mega Menus controller (Banking, Loans, Savings)
+const bankingBtn = document.getElementById('bankingBtn');
+const bankingMega = document.getElementById('bankingMega');
+const loansBtn = document.getElementById('loansBtn');
+const loansMega = document.getElementById('loansMega');
+const savingsBtn = document.getElementById('savingsBtn');
+const savingsMega = document.getElementById('savingsMega');
+
+function closeAllMenus() {
+  if (bankingBtn) {
+    bankingBtn.classList.remove('open');
+    bankingBtn.setAttribute('aria-expanded', 'false');
+  }
+  if (bankingMega) bankingMega.classList.remove('open');
+  if (loansBtn) {
+    loansBtn.classList.remove('open');
+    loansBtn.setAttribute('aria-expanded', 'false');
+  }
+  if (loansMega) loansMega.classList.remove('open');
+  if (savingsBtn) {
+    savingsBtn.classList.remove('open');
+    savingsBtn.setAttribute('aria-expanded', 'false');
+  }
+  if (savingsMega) savingsMega.classList.remove('open');
+}
+
+function toggleMenu(btn, mega) {
+  if (!btn || !mega) return;
+  const isCurrentlyOpen = mega.classList.contains('open');
+  closeAllMenus();
+  if (!isCurrentlyOpen) {
+    btn.classList.add('open');
+    mega.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+}
+
+if (bankingBtn && bankingMega) {
+  bankingBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu(bankingBtn, bankingMega);
+  });
+}
+
+if (loansBtn && loansMega) {
+  loansBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu(loansBtn, loansMega);
+  });
+}
+
+if (savingsBtn && savingsMega) {
+  savingsBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu(savingsBtn, savingsMega);
+  });
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.navbar-wrap')) {
+    closeAllMenus();
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeAllMenus();
+});
+
+document.querySelectorAll('.nav-mega a').forEach(a => {
+  a.addEventListener('click', () => closeAllMenus());
+});
+
+const mainNav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  if (mainNav) {
+    mainNav.classList.toggle('scrolled', window.scrollY > 20);
+  }
+}, { passive: true });
+</script>
+</body>
+</html>
