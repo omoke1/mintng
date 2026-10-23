@@ -283,7 +283,10 @@ footer p{margin-top:14px;max-width:900px}
         Loans
         <svg class="chevron" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       </button>
-      <a class="nav-pill-link" href="#savings">Savings</a>
+      <button class="nav-pill-btn" id="savingsBtn" aria-expanded="false" type="button">
+        Savings
+        <svg class="chevron" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
       <a class="nav-pill-link" href="#about">About</a>
       <a class="nav-pill-link" href="#cta">Contact</a>
     </nav>
@@ -367,6 +370,39 @@ footer p{margin-top:14px;max-width:900px}
           <a href="#loans" class="mega-item">
             <h4>Group Loans</h4>
             <p>Leverage the power of community lending for cooperatives and trading groups (₦100,000 - ₦2,000,000) from 2% monthly.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Full-Width Liquid Glass Mega Dropdown (Savings) -->
+  <div class="nav-mega" id="savingsMega">
+    <div class="mega-layout">
+      <!-- Left Column: Platform -->
+      <div class="mega-left">
+        <span class="mega-tag">Platform</span>
+        <div class="mega-list">
+          <a href="#savings" class="mega-item">
+            <h4>Regular Savings Account</h4>
+            <p>Flexible savings with easy access to your money. Up to 8% p.a., ₦0 minimum balance, easy withdrawals, mobile banking and debit card access.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="mega-sep"></div>
+
+      <!-- Right Column: Products (2-column grid) -->
+      <div class="mega-right">
+        <span class="mega-tag">Products</span>
+        <div class="mega-grid-2">
+          <a href="#savings" class="mega-item">
+            <h4>Mint Save Account</h4>
+            <p>High-yield savings with tiered interest up to 15% p.a. (10% 1-6mo, 12% 6-12mo, 15% 12+mo), compound growth, and ₦10,000 minimum.</p>
+          </a>
+          <a href="#savings" class="mega-item">
+            <h4>Goal-Based Savings</h4>
+            <p>Save for specific goals with automated deposits, real-time goal tracking, milestone rewards, and up to 12% p.a. from ₦5,000.</p>
           </a>
         </div>
       </div>
@@ -514,11 +550,13 @@ function count(n){const v=+n.dataset.count,d=+n.dataset.dec,t0=performance.now()
 if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');el.addEventListener('transitionend',()=>el.classList.remove('rv'),{once:true});el.querySelectorAll('[data-count]').forEach(count);io.unobserve(el)}),{threshold:.15});
 document.querySelectorAll('.card,.panel,.dash .p,section h2,.sub,.team').forEach(el=>{el.style.setProperty('--d',Array.from(el.parentNode.children).indexOf(el)*.08+'s');el.classList.add('rv');io.observe(el)})}
-// Nav Mega Menus controller (Banking and Loans)
+// Nav Mega Menus controller (Banking, Loans, Savings)
 const bankingBtn = document.getElementById('bankingBtn');
 const bankingMega = document.getElementById('bankingMega');
 const loansBtn = document.getElementById('loansBtn');
 const loansMega = document.getElementById('loansMega');
+const savingsBtn = document.getElementById('savingsBtn');
+const savingsMega = document.getElementById('savingsMega');
 
 function closeAllMenus() {
   if (bankingBtn) {
@@ -531,6 +569,11 @@ function closeAllMenus() {
     loansBtn.setAttribute('aria-expanded', 'false');
   }
   if (loansMega) loansMega.classList.remove('open');
+  if (savingsBtn) {
+    savingsBtn.classList.remove('open');
+    savingsBtn.setAttribute('aria-expanded', 'false');
+  }
+  if (savingsMega) savingsMega.classList.remove('open');
 }
 
 function toggleMenu(btn, mega) {
@@ -555,6 +598,13 @@ if (loansBtn && loansMega) {
   loansBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     toggleMenu(loansBtn, loansMega);
+  });
+}
+
+if (savingsBtn && savingsMega) {
+  savingsBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu(savingsBtn, savingsMega);
   });
 }
 
