@@ -3,28 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Contact Us — Mint Microfinance Bank (CBN Licensed)</title>
+<title>Contact Us — Mint Microfinance Bank</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#fbfaf8;
-  --ink:#17181a;
-  --mute:#8a8b8e;
-  --card:#fff;
-  --line:#e8e5df;
-  --amber:#4fd69c;
-  --amber-dark:#18a574;
-  --amber2:#fde7b0;
-  --dark:#0e1013;
-  --mint-soft:#c9f4e0;
-  box-sizing:border-box;
-}
-*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#fbfaf8;--ink:#17181a;--mute:#8a8b8e;--card:#fff;--line:#e8e5df;--amber:#4fd69c;--amber2:#fde7b0;--dark:#0e1013;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101214;--ink:#f1efea;--mute:#8d8f93;--card:#191c20;--line:#2a2d32}}
+*{box-sizing:border-box;margin:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 body{
-  background:
-    radial-gradient(85% 55% at 50% -8%, #c9f4e0 0%, rgba(201, 244, 224, 0.42) 48%, var(--bg) 88%),
-    var(--bg);
+  background:var(--bg);
   color:var(--ink);
   font-family:Outfit,system-ui,sans-serif;
   line-height:1.5;
@@ -33,8 +22,10 @@ body{
   display:flex;
   flex-direction:column;
 }
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
 
-/* Full-Width Liquid Glass Navigation */
+/* Full-Width Liquid Glass Navigation - Exactly Matching index.html */
 header.navbar-wrap{
   position:sticky;
   top:0;
@@ -50,10 +41,7 @@ header.navbar-wrap{
   transition:background .25s ease,box-shadow .25s ease,border-color .25s ease;
   box-sizing:border-box;
 }
-header.navbar-wrap.scrolled{
-  background:color-mix(in srgb,var(--card) 92%,transparent);
-  box-shadow:0 12px 36px 0 rgba(0,0,0,0.08);
-}
+
 .nav-row{
   display:flex;
   align-items:center;
@@ -63,28 +51,9 @@ header.navbar-wrap.scrolled{
   margin:0 auto;
   padding:0 24px;
 }
-.nav-brand{
-  display:flex;
-  gap:8px;
-  align-items:center;
-  font-weight:600;
-  font-size:19px;
-  color:var(--ink);
-  text-decoration:none;
-  flex-shrink:0;
-}
-.nav-brand i{
-  width:18px;
-  height:18px;
-  border:3px solid var(--ink);
-  border-radius:5px;
-  display:block;
-}
-.nav-menu{
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
+.nav-brand{display:flex;gap:8px;align-items:center;font-weight:600;font-size:19px;color:var(--ink);flex-shrink:0}
+.nav-brand i{width:18px;height:18px;border:3px solid var(--ink);border-radius:5px;display:block}
+.nav-menu{display:flex;align-items:center;gap:6px}
 .nav-pill-btn{
   background:transparent;
   color:var(--mute);
@@ -98,94 +67,26 @@ header.navbar-wrap.scrolled{
   cursor:pointer;
   transition:all .18s ease;
 }
-.nav-pill-btn:hover,
-.nav-pill-btn.open{
-  background:color-mix(in srgb,var(--ink) 8%,transparent);
-  color:var(--ink);
-}
-.nav-pill-btn .chevron{
-  width:12px;
-  height:12px;
-  transition:transform .25s ease;
-}
-.nav-pill-btn.open .chevron{
-  transform:rotate(180deg);
-}
-.nav-pill-link{
-  padding:8px 16px;
-  border-radius:9999px;
-  font:500 14px Outfit,sans-serif;
-  color:var(--mute);
-  text-decoration:none;
-  transition:color .2s;
-}
-.nav-pill-link:hover,
-.nav-pill-link.active{
-  color:var(--ink);
-  background:color-mix(in srgb,var(--ink) 8%,transparent);
-}
+.nav-pill-btn:hover,.nav-pill-btn.open{background:color-mix(in srgb,var(--ink) 8%,transparent);color:var(--ink)}
+.nav-pill-btn .chevron{width:12px;height:12px;transition:transform .25s ease}
+.nav-pill-btn.open .chevron{transform:rotate(180deg)}
+.nav-pill-link{padding:8px 16px;border-radius:9999px;font:500 14px Outfit,sans-serif;color:var(--mute);transition:all .2s}
+.nav-pill-link:hover,.nav-pill-link.active{color:var(--ink);background:color-mix(in srgb,var(--ink) 8%,transparent)}
 
-.nav-actions{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  flex-shrink:0;
-}
+.nav-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .nav-lang{position:relative}
-.nav-lang-btn{
-  background:transparent;
-  border:0;
-  font:500 13px Outfit,sans-serif;
-  color:var(--mute);
-  display:flex;
-  align-items:center;
-  gap:4px;
-  padding:6px 10px;
-  border-radius:9999px;
-  cursor:pointer;
-}
-.nav-lang-btn:hover{
-  background:color-mix(in srgb,var(--ink) 6%,transparent);
-  color:var(--ink);
-}
-.btn-sec{
-  border:1px solid color-mix(in srgb,var(--line) 80%,transparent);
-  background:color-mix(in srgb,var(--card) 60%,transparent);
-  color:var(--ink);
-  border-radius:9999px;
-  padding:8px 18px;
-  font:600 13px Outfit,sans-serif;
-  cursor:pointer;
-  transition:all .2s;
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-}
-.btn-sec:hover{
-  background:color-mix(in srgb,var(--ink) 8%,transparent);
-}
-.btn-pri{
-  background:var(--amber);
-  color:#06281c;
-  border-radius:9999px;
-  padding:8px 20px;
-  font:600 13px Outfit,sans-serif;
-  border:0;
-  cursor:pointer;
-  transition:opacity .2s;
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-}
-.btn-pri:hover{
-  opacity:.92;
-}
+.nav-lang-btn{background:transparent;border:0;font:500 13px Outfit,sans-serif;color:var(--mute);display:flex;align-items:center;gap:4px;padding:6px 10px;border-radius:9999px;cursor:pointer}
+.nav-lang-btn:hover{background:color-mix(in srgb,var(--ink) 6%,transparent);color:var(--ink)}
+.btn-sec{border:1px solid color-mix(in srgb,var(--line) 80%,transparent);background:color-mix(in srgb,var(--card) 60%,transparent);color:var(--ink);border-radius:9999px;padding:8px 18px;font:600 13px Outfit,sans-serif;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center}
+.btn-sec:hover{background:color-mix(in srgb,var(--ink) 8%,transparent)}
+.btn-pri{background:var(--amber);color:#06281c;border-radius:9999px;padding:8px 20px;font:600 13px Outfit,sans-serif;border:0;cursor:pointer;transition:opacity .2s;text-decoration:none;display:inline-flex;align-items:center}
+.btn-pri:hover{opacity:.92}
 
 /* Full-width liquid glass mega dropdown */
 .nav-mega{
   display:none;
   width:100%;
-  background:color-mix(in srgb,var(--card) 88%,transparent);
+  background:color-mix(in srgb,var(--card) 85%,transparent);
   backdrop-filter:blur(24px) saturate(180%);
   -webkit-backdrop-filter:blur(24px) saturate(180%);
   border-top:1px solid color-mix(in srgb,var(--line) 60%,transparent);
@@ -195,6 +96,7 @@ header.navbar-wrap.scrolled{
 .nav-mega.open{display:block}
 @keyframes navExpand{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
 
+/* Reah-style minimal typographic dropdown without cards */
 .mega-layout{
   max-width:1080px;
   margin:0 auto;
@@ -247,7 +149,7 @@ header.navbar-wrap.scrolled{
   transition:color .15s ease;
 }
 .mega-item:hover h4{
-  color:var(--amber-dark);
+  color:var(--amber);
 }
 .mega-item p{
   margin:0;
@@ -265,30 +167,51 @@ header.navbar-wrap.scrolled{
   .nav-menu,.nav-actions{display:none}
 }
 
-/* Contact Main Section */
-.contact-section{
+/* Contact Main Section inside identical Hero Background */
+.contact-hero{
+  background:linear-gradient(#c9f4e0,var(--bg) 78%);
+  margin-top:0;
+  padding:50px 0 90px;
+  position:relative;
+  overflow:hidden;
   flex:1;
-  max-width:1160px;
-  width:100%;
-  margin:0 auto;
-  padding:50px 24px 80px;
-  display:grid;
-  grid-template-columns:1.02fr 1.08fr;
-  gap:56px;
+  display:flex;
   align-items:center;
 }
+.contact-hero::before{
+  content:"";
+  position:absolute;
+  inset:-20% -10% auto;
+  height:70%;
+  background:radial-gradient(40% 60% at 30% 40%,#5ff0b088,transparent 70%),radial-gradient(35% 55% at 72% 50%,#2fd0a066,transparent 70%);
+  filter:blur(30px);
+  animation:drift 12s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+@keyframes drift{from{transform:translate(-8%,0) scale(1)}to{transform:translate(8%,6%) scale(1.15)}}
 
-/* Left Column */
+.contact-wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 24px;
+  display:grid;
+  grid-template-columns:1fr 1.08fr;
+  gap:52px;
+  align-items:center;
+  position:relative;
+  z-index:2;
+}
+
+/* Left Column: Brand & Trust Info */
 .contact-left{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  padding-right:12px;
 }
 .contact-title{
-  font-size:clamp(36px,4.5vw,56px);
+  font-size:clamp(34px,4.5vw,52px);
   font-weight:600;
-  line-height:1.08;
+  line-height:1.1;
   letter-spacing:-.025em;
   color:var(--ink);
   margin-bottom:18px;
@@ -297,22 +220,24 @@ header.navbar-wrap.scrolled{
   color:var(--mute);
 }
 .contact-sub{
-  font-size:16.5px;
+  font-size:16px;
   line-height:1.55;
   color:#3f5a4e;
   max-width:480px;
-  margin-bottom:38px;
+  margin-bottom:34px;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .contact-sub{color:var(--mute)}
 }
 
-/* Contact Info Quick Badges */
 .contact-details-row{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:16px;
-  margin-bottom:38px;
+  gap:14px;
+  margin-bottom:36px;
 }
 .c-detail-item{
-  background:color-mix(in srgb,var(--card) 92%,transparent);
+  background:color-mix(in srgb,var(--card) 90%,transparent);
   backdrop-filter:blur(10px);
   border:1px solid var(--line);
   border-radius:14px;
@@ -321,7 +246,7 @@ header.navbar-wrap.scrolled{
 }
 .c-detail-item small{
   display:block;
-  font-size:11.5px;
+  font-size:11px;
   font-weight:600;
   text-transform:uppercase;
   letter-spacing:.04em;
@@ -329,12 +254,11 @@ header.navbar-wrap.scrolled{
   margin-bottom:4px;
 }
 .c-detail-item span{
-  font-size:14px;
+  font-size:13.5px;
   font-weight:500;
   color:var(--ink);
 }
 
-/* Partner Trust Logos */
 .built-section{
   margin-top:auto;
 }
@@ -350,23 +274,23 @@ header.navbar-wrap.scrolled{
 .partner-logos{
   display:flex;
   align-items:center;
-  gap:20px;
+  gap:18px;
   flex-wrap:wrap;
 }
 .logo-item{
   display:inline-flex;
   align-items:center;
   gap:6px;
-  font-size:13.5px;
+  font-size:13px;
   font-weight:600;
   color:var(--ink);
   opacity:.88;
 }
 .logo-item svg{
-  color:var(--amber-dark);
+  color:var(--amber);
 }
 
-/* Right Column: Signature Mint Radiant Gradient Container */
+/* Right Column: Creative Radiant Emerald & Amber Aura Container */
 .contact-right{
   position:relative;
 }
@@ -375,21 +299,21 @@ header.navbar-wrap.scrolled{
     radial-gradient(ellipse at 88% 18%, #4fd69c 0%, #18a574 32%, #0e3528 72%, #081711 100%),
     radial-gradient(circle at 14% 54%, rgba(253, 231, 176, 0.55) 0%, transparent 46%),
     #0a1d15;
-  border-radius:32px;
-  padding:32px;
+  border-radius:30px;
+  padding:30px;
   box-shadow:0 30px 60px -15px rgba(24,165,116,0.30), 0 20px 40px -10px rgba(0,0,0,0.18);
   border:1px solid rgba(79,214,156,0.22);
 }
 .form-card{
   background:#ffffff;
   border-radius:20px;
-  padding:32px 28px;
+  padding:30px 26px;
   box-shadow:0 4px 6px -1px rgba(0,0,0,0.06), 0 20px 25px -5px rgba(0,0,0,0.08);
 }
 .contact-form{
   display:flex;
   flex-direction:column;
-  gap:15px;
+  gap:14px;
 }
 .form-group{
   display:flex;
@@ -397,7 +321,7 @@ header.navbar-wrap.scrolled{
   gap:5px;
 }
 .form-label{
-  font-size:12.5px;
+  font-size:12px;
   font-weight:600;
   color:#1f2937;
   letter-spacing:-.01em;
@@ -409,8 +333,8 @@ header.navbar-wrap.scrolled{
   background:#f9fafb;
   border:1px solid #e5e7eb;
   border-radius:8px;
-  padding:10px 13px;
-  font-size:13.5px;
+  padding:9px 12px;
+  font-size:13px;
   font-family:Outfit,sans-serif;
   color:#111827;
   outline:none;
@@ -431,13 +355,13 @@ header.navbar-wrap.scrolled{
   appearance:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
   background-repeat:no-repeat;
-  background-position:right 14px center;
-  padding-right:34px;
+  background-position:right 12px center;
+  padding-right:32px;
   cursor:pointer;
 }
 .form-textarea{
   resize:vertical;
-  min-height:80px;
+  min-height:75px;
 }
 .submit-btn{
   margin-top:4px;
@@ -447,7 +371,7 @@ header.navbar-wrap.scrolled{
   border:0;
   border-radius:9px;
   padding:12px 20px;
-  font-size:14.5px;
+  font-size:14px;
   font-weight:600;
   font-family:Outfit,sans-serif;
   cursor:pointer;
@@ -461,102 +385,39 @@ header.navbar-wrap.scrolled{
 .submit-btn:active{
   transform:translateY(0);
 }
-
 .form-success{
   display:none;
   text-align:center;
-  padding:24px 16px;
+  padding:20px 14px;
   background:#e8fbf2;
   border:1px solid #b7f1d4;
   border-radius:12px;
   color:#0f5132;
-  font-size:14px;
+  font-size:13.5px;
   font-weight:500;
 }
 
-/* Footer matching Mint */
-footer{
-  background:#0f1714;
-  color:#9aa6a0;
-  border-top:1px solid rgba(255,255,255,0.06);
-  padding:48px 0 36px;
-  margin-top:auto;
-}
-footer .wrap{
-  max-width:1100px;
-  margin:0 auto;
-  padding:0 24px;
-}
-.footer-cols{
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:40px;
-  margin-bottom:30px;
-}
-.footer-logo{
-  display:flex;
-  gap:8px;
-  align-items:center;
-  font-weight:600;
-  font-size:19px;
-  color:#ffffff;
-  text-decoration:none;
-}
-.footer-logo i{
-  width:18px;
-  height:18px;
-  border:3px solid #ffffff;
-  border-radius:5px;
-  display:block;
-}
-footer h4{
-  font-size:13px;
-  font-weight:600;
-  text-transform:uppercase;
-  letter-spacing:.04em;
-  color:#ffffff;
-  margin-bottom:14px;
-}
-footer a{
-  display:block;
-  font-size:13.5px;
-  color:#9aa6a0;
-  text-decoration:none;
-  margin-bottom:9px;
-  transition:color .18s;
-}
-footer a:hover{
-  color:#ffffff;
-}
-.disclaimer{
-  font-size:12px;
-  color:#67746e;
-  line-height:1.55;
-  border-top:1px solid rgba(255,255,255,0.08);
-  padding-top:20px;
-}
+/* Footer - Exactly Matching index.html */
+footer{background:#0f1714;color:#9aa6a0;font-size:12px;padding:50px 0 60px}
+footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:20px;margin-bottom:36px}
+footer .logo{color:#fff}footer h4{color:#fff;font-weight:400;margin-bottom:10px}footer a{display:block;margin-bottom:8px}
+footer p{margin-top:14px;max-width:900px}
 
-@media(max-width:980px){
-  .contact-section{
-    grid-template-columns:1fr;
-    gap:40px;
-    padding:36px 20px 60px;
-  }
-  .contact-left{padding-right:0}
-  .gradient-aura-box{padding:22px;border-radius:24px}
-  .form-card{padding:24px 20px}
-  .footer-cols{grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:920px){
+  .contact-wrap{grid-template-columns:1fr;gap:36px}
+  .gradient-aura-box{padding:20px;border-radius:24px}
+  .form-card{padding:22px 18px}
+  footer .cols{grid-template-columns:1fr}
 }
-@media(max-width:600px){
+@media(max-width:540px){
   .contact-details-row{grid-template-columns:1fr}
-  .footer-cols{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- Liquid Glass Header Navigation -->
-<header class="navbar-wrap" id="mainNav">
+<!-- Full-Width Liquid Glass Navigation - Exactly Matching index.html -->
+<header class="navbar-wrap">
   <div class="nav-row">
     <!-- Logo -->
     <a class="nav-brand" href="index.html"><i></i>Mint</a>
@@ -594,10 +455,11 @@ footer a:hover{
   <!-- Full-Width Liquid Glass Mega Dropdown (Banking) -->
   <div class="nav-mega" id="bankingMega">
     <div class="mega-layout">
+      <!-- Left Column: Platform -->
       <div class="mega-left">
         <span class="mega-tag">Platform</span>
         <div class="mega-list">
-          <a href="index.html#products" class="mega-item">
+          <a href="index.html#cta" class="mega-item">
             <h4>Current Account</h4>
             <p>Perfect for everyday banking with zero fees, no minimum balance, and instant transfers.</p>
           </a>
@@ -607,7 +469,11 @@ footer a:hover{
           </a>
         </div>
       </div>
+
+      <!-- Divider -->
       <div class="mega-sep"></div>
+
+      <!-- Right Column: Products (2-column grid) -->
       <div class="mega-right">
         <span class="mega-tag">Products</span>
         <div class="mega-grid-2">
@@ -627,6 +493,7 @@ footer a:hover{
   <!-- Full-Width Liquid Glass Mega Dropdown (Loans) -->
   <div class="nav-mega" id="loansMega">
     <div class="mega-layout">
+      <!-- Left Column: Platform -->
       <div class="mega-left">
         <span class="mega-tag">Platform</span>
         <div class="mega-list">
@@ -636,7 +503,11 @@ footer a:hover{
           </a>
         </div>
       </div>
+
+      <!-- Divider -->
       <div class="mega-sep"></div>
+
+      <!-- Right Column: Products (2-column grid) -->
       <div class="mega-right">
         <span class="mega-tag">Products</span>
         <div class="mega-grid-2">
@@ -656,6 +527,7 @@ footer a:hover{
   <!-- Full-Width Liquid Glass Mega Dropdown (Savings) -->
   <div class="nav-mega" id="savingsMega">
     <div class="mega-layout">
+      <!-- Left Column: Platform -->
       <div class="mega-left">
         <span class="mega-tag">Platform</span>
         <div class="mega-list">
@@ -665,7 +537,11 @@ footer a:hover{
           </a>
         </div>
       </div>
+
+      <!-- Divider -->
       <div class="mega-sep"></div>
+
+      <!-- Right Column: Products (2-column grid) -->
       <div class="mega-right">
         <span class="mega-tag">Products</span>
         <div class="mega-grid-2">
@@ -683,136 +559,114 @@ footer a:hover{
   </div>
 </header>
 
-<!-- Main Contact Section: Mint Landing Page Background + Creative Emerald Aura -->
-<main class="contact-section">
-  <!-- Left Column: Mint Brand Information -->
-  <div class="contact-left">
-    <h1 class="contact-title">Digital banking for Nigerians<br><span>and the businesses they run.</span></h1>
-    <p class="contact-sub">Have questions about opening an account, accessing business capital, or growing with high-yield savings? Reach out to our banking specialists and we'll assist you promptly.</p>
+<!-- Main Contact Hero Section (Same Mint Gradient Background as index.html) -->
+<main class="contact-hero">
+  <div class="contact-wrap">
+    <!-- Left Column: Mint Brand Information -->
+    <div class="contact-left">
+      <h1 class="contact-title">Digital banking for Nigerians<br><span>and the businesses they run.</span></h1>
+      <p class="contact-sub">Have questions about opening an account, accessing business capital, or growing with high-yield savings? Reach out to our banking specialists and we'll assist you promptly.</p>
 
-    <!-- Direct Contact Details -->
-    <div class="contact-details-row">
-      <div class="c-detail-item">
-        <small>Head Office</small>
-        <span>Port Harcourt, Rivers State</span>
+      <!-- Direct Contact Details -->
+      <div class="contact-details-row">
+        <div class="c-detail-item">
+          <small>Head Office</small>
+          <span>Port Harcourt, Rivers State</span>
+        </div>
+        <div class="c-detail-item">
+          <small>Customer Support</small>
+          <span>support@mintmfb.ng</span>
+        </div>
       </div>
-      <div class="c-detail-item">
-        <small>Customer Support</small>
-        <span>support@mintmfb.ng</span>
+
+      <!-- Institutional Trust Badges (CBN, NDIC, NIBSS, Interswitch) -->
+      <div class="built-section">
+        <span class="built-tag">Licensed &amp; Secured with the best</span>
+        <div class="partner-logos">
+          <div class="logo-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            CBN Licensed
+          </div>
+          <div class="logo-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            NDIC Insured
+          </div>
+          <div class="logo-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+            NIBSS Instant
+          </div>
+          <div class="logo-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18"/></svg>
+            Interswitch POS
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Institutional Trust Badges (CBN, NDIC, NIBSS, Interswitch) -->
-    <div class="built-section">
-      <span class="built-tag">Licensed &amp; Secured with the best</span>
-      <div class="partner-logos">
-        <div class="logo-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          CBN Licensed
-        </div>
-        <div class="logo-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          NDIC Insured
-        </div>
-        <div class="logo-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-          NIBSS Instant
-        </div>
-        <div class="logo-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18"/></svg>
-          Interswitch POS
-        </div>
-      </div>
-    </div>
-  </div>
+    <!-- Right Column: Creative Emerald & Amber Aura Container -->
+    <div class="contact-right">
+      <div class="gradient-aura-box">
+        <div class="form-card" id="contactForm">
+          <form class="contact-form" id="inquiryForm" onsubmit="event.preventDefault(); document.getElementById('formSuccess').style.display='block'; this.style.display='none';">
+            <div class="form-group">
+              <label class="form-label">Full Name*</label>
+              <input class="form-input" type="text" placeholder="e.g. Chukwuma Okafor" required>
+            </div>
 
-  <!-- Right Column: Creative Emerald & Amber Aura Container -->
-  <div class="contact-right">
-    <div class="gradient-aura-box">
-      <div class="form-card" id="contactForm">
-        <form class="contact-form" id="inquiryForm" onsubmit="event.preventDefault(); document.getElementById('formSuccess').style.display='block'; this.style.display='none';">
-          <div class="form-group">
-            <label class="form-label">Full Name*</label>
-            <input class="form-input" type="text" placeholder="e.g. Chukwuma Okafor" required>
+            <div class="form-group">
+              <label class="form-label">Email Address*</label>
+              <input class="form-input" type="email" placeholder="name@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Phone Number*</label>
+              <input class="form-input" type="tel" placeholder="+234 800 000 0000" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Business / Trading Name</label>
+              <input class="form-input" type="text" placeholder="Your business or trade name (optional)">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">What service do you need?*</label>
+              <select class="form-select" required>
+                <option value="" disabled selected>Select an option...</option>
+                <option value="business-account">Small Business Banking &amp; POS</option>
+                <option value="quick-loan">Quick Business Loan (₦50,000 - ₦5,000,000)</option>
+                <option value="salary-loan">Salary Advance Loan</option>
+                <option value="group-loan">Group / Cooperative Loan</option>
+                <option value="savings">High-Yield Savings (Up to 15% p.a.)</option>
+                <option value="personal-account">Personal Current Account</option>
+                <option value="general">Other / General Support</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Your Message</label>
+              <textarea class="form-textarea" placeholder="How can Mint help your personal or business finances?"></textarea>
+            </div>
+
+            <button class="submit-btn" type="submit">Get in touch</button>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            Thank you! Your inquiry has been received. A Mint banking representative will contact you shortly.
           </div>
-
-          <div class="form-group">
-            <label class="form-label">Email Address*</label>
-            <input class="form-input" type="email" placeholder="name@example.com" required>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Phone Number*</label>
-            <input class="form-input" type="tel" placeholder="+234 800 000 0000" required>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Business / Trading Name</label>
-            <input class="form-input" type="text" placeholder="Your business or trade name (optional)">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">What service do you need?*</label>
-            <select class="form-select" required>
-              <option value="" disabled selected>Select an option...</option>
-              <option value="business-account">Small Business Banking &amp; POS</option>
-              <option value="quick-loan">Quick Business Loan (₦50,000 - ₦5,000,000)</option>
-              <option value="salary-loan">Salary Advance Loan</option>
-              <option value="group-loan">Group / Cooperative Loan</option>
-              <option value="savings">High-Yield Savings (Up to 15% p.a.)</option>
-              <option value="personal-account">Personal Current Account</option>
-              <option value="general">Other / General Support</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Your Message</label>
-            <textarea class="form-textarea" placeholder="How can Mint help your personal or business finances?"></textarea>
-          </div>
-
-          <button class="submit-btn" type="submit">Get in touch</button>
-        </form>
-
-        <div class="form-success" id="formSuccess">
-          Thank you! Your inquiry has been received. A Mint banking representative will contact you shortly.
         </div>
       </div>
     </div>
   </div>
 </main>
 
-<!-- Footer -->
-<footer>
-  <div class="wrap">
-    <div class="footer-cols">
-      <div>
-        <a class="footer-logo" href="index.html"><i></i>Mint</a>
-        <p style="margin-top:12px;font-size:13.5px;color:#9aa6a0">&copy; Mint Microfinance Bank Ltd. All rights reserved.</p>
-        <p style="margin-top:4px;font-size:12.5px;color:#9aa6a0">Head Office: Port Harcourt, Rivers State, Nigeria.</p>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <a href="index.html#about">About</a>
-        <a href="contact.html">Contact Us</a>
-      </div>
-      <div>
-        <h4>Products</h4>
-        <a href="index.html#loans">Business Loans</a>
-        <a href="index.html#savings">Savings Accounts</a>
-        <a href="index.html#app">Mobile Banking</a>
-        <a href="index.html#products">POS Services</a>
-      </div>
-      <div>
-        <h4>Get started</h4>
-        <a href="index.html#top">Open account</a>
-        <a href="index.html#app">iPhone App</a>
-      </div>
-    </div>
-    <div class="disclaimer">
-      Mint Microfinance Bank is regulated by the Central Bank of Nigeria (CBN). All eligible customer deposits are insured by the Nigeria Deposit Insurance Corporation (NDIC).
-    </div>
-  </div>
-</footer>
+<!-- Footer - Exactly Matching index.html -->
+<footer><div class="wrap">
+<div class="cols"><div><a class="logo" href="index.html"><i style="border-color:#fff"></i>Mint</a><p style="margin-top:12px">© Mint Microfinance Bank Ltd. All rights reserved.</p></div>
+<div><h4>Company</h4><a href="index.html#about">About</a><a href="contact.html">Contact Us</a></div>
+<div><h4>Products</h4><a href="index.html#products">Business Loans</a><a href="index.html#products">Savings</a><a href="index.html#app">Mobile Banking</a><a href="index.html#products">POS Services</a></div>
+<div><h4>Get started</h4><a href="index.html#cta">Open account</a><a href="index.html#app">iPhone app</a></div></div>
+<p>Mint Microfinance Bank is licensed by the Central Bank of Nigeria, and deposits are insured by the Nigeria Deposit Insurance Corporation. Loan approval is subject to eligibility. Figures shown on this page are sample data.</p>
+</div></footer>
 
 <script>
 // Nav Mega Menus controller (Banking, Loans, Savings)
@@ -886,13 +740,6 @@ document.addEventListener('keydown', (e) => {
 document.querySelectorAll('.nav-mega a').forEach(a => {
   a.addEventListener('click', () => closeAllMenus());
 });
-
-const mainNav = document.getElementById('mainNav');
-window.addEventListener('scroll', () => {
-  if (mainNav) {
-    mainNav.classList.toggle('scrolled', window.scrollY > 20);
-  }
-}, { passive: true });
 </script>
 </body>
 </html>
