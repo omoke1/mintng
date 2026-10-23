@@ -15,13 +15,66 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{background:var(--bg);color:var(--ink);font-family:Outfit,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(10px)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:99;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+nav.scrolled{border-bottom-color:var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;position:relative}
 .logo{display:flex;gap:8px;align-items:center;font-weight:600;font-size:19px}
 .logo i{width:20px;height:20px;border:3px solid var(--ink);border-radius:5px;display:block}
-.links{display:flex;gap:26px;font-size:13px;font-weight:500}
-.links a{transition:color .2s}
-.links a:hover{color:var(--amber)}
+.links{display:flex;align-items:center;gap:18px;font-size:13px;font-weight:500}
+.links>a{padding:6px 12px;border-radius:20px;transition:color .2s,background .2s}
+.links>a:hover{color:var(--amber)}
+
+/* Mega Menu Dropdown matching Reah reference */
+.nav-dropdown{position:relative}
+.nav-btn{background:transparent;color:var(--ink);border:0;padding:6px 14px;border-radius:20px;font:500 13px Outfit,sans-serif;display:inline-flex;align-items:center;gap:6px;cursor:pointer;transition:all .2s ease}
+.nav-btn:hover,.nav-dropdown:hover .nav-btn,.nav-dropdown.open .nav-btn{background:var(--ink);color:#fff}
+.nav-caret{width:9px;height:5px;transition:transform .25s ease}
+.nav-dropdown:hover .nav-caret,.nav-dropdown.open .nav-caret{transform:rotate(180deg)}
+
+.mega-menu{
+  position:absolute;
+  top:calc(100% + 10px);
+  left:50%;
+  transform:translateX(-50%) translateY(8px);
+  width:min(1060px,calc(100vw - 32px));
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  box-shadow:0 24px 50px -12px rgba(0,0,0,0.12),0 4px 16px rgba(0,0,0,0.04);
+  padding:28px 32px;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .2s cubic-bezier(.2,0,0,1),transform .2s cubic-bezier(.2,0,0,1),visibility .2s;
+  z-index:100;
+  text-align:left;
+}
+.nav-dropdown:hover .mega-menu,.nav-dropdown.open .mega-menu{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateX(-50%) translateY(0);
+}
+.mega-wrap{display:grid;grid-template-columns:1.2fr 1px 1.1fr 1.1fr;gap:28px;align-items:stretch}
+.mega-divider{background:var(--line);width:1px;height:100%}
+.mega-header{display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-bottom:16px}
+.mega-item{display:flex;flex-direction:column}
+.mega-item-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:8px}
+.mega-icon{width:32px;height:32px;border-radius:8px;background:color-mix(in srgb,var(--amber) 18%,transparent);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;margin-top:2px}
+.mega-item h4{font-size:15px;font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:3px}
+.mega-desc{font-size:12px;color:var(--mute);line-height:1.4}
+.mega-bullets{list-style:none;padding:0;margin:8px 0 16px 0;display:flex;flex-direction:column;gap:5px}
+.mega-bullets li{font-size:12px;color:var(--ink);display:flex;align-items:center;gap:7px}
+.mega-bullets li::before{content:"✓";font-weight:700;font-size:11px;color:#18a574}
+.mega-link{margin-top:auto;font-size:12px;font-weight:600;color:var(--ink);display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:6px;background:color-mix(in srgb,var(--bg) 80%,var(--line));width:fit-content;transition:all .2s ease}
+.mega-link:hover{background:var(--amber);color:#06281c}
+.mega-link i{font-style:normal;transition:transform .2s ease}
+.mega-link:hover i{transform:translateX(3px)}
+
+@media(max-width:980px){
+  .mega-wrap{grid-template-columns:1fr 1fr;gap:22px}
+  .mega-divider{display:none}
+}
 .btn{background:var(--amber);color:#06281c;border-radius:8px;padding:7px 16px;font-size:13px;font-weight:500;display:inline-block;border:0;cursor:pointer;font-family:inherit}
 h1,h2{font-weight:500;letter-spacing:-.025em;line-height:1.08}
 h2 span,h1 span{color:var(--mute)}
@@ -134,9 +187,101 @@ footer p{margin-top:14px;max-width:900px}
 </style>
 </head>
 <body>
-<nav><div class="wrap"><a class="logo" href="#top"><i></i>Mint</a>
+<nav id="mainNav"><div class="wrap"><a class="logo" href="#top"><i></i>Mint</a>
 <div class="links">
-  <a href="#products">Banking</a>
+  <div class="nav-dropdown" id="bankingDropdown">
+    <button class="nav-btn" id="bankingBtn" aria-expanded="false" aria-controls="bankingMenu">
+      Banking
+      <svg class="nav-caret" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="mega-menu" id="bankingMenu" role="region" aria-label="Banking options">
+      <div class="mega-wrap">
+        <!-- Left Column: Personal Accounts & Security -->
+        <div class="mega-col">
+          <span class="mega-header">Personal Banking</span>
+          <div class="mega-item">
+            <div class="mega-item-head">
+              <div class="mega-icon">💳</div>
+              <div>
+                <h4>Current Account</h4>
+                <p class="mega-desc">Perfect for everyday banking needs with zero fees</p>
+              </div>
+            </div>
+            <ul class="mega-bullets">
+              <li>No minimum balance</li>
+              <li>Free debit card</li>
+              <li>Instant transfers</li>
+              <li>Mobile banking</li>
+            </ul>
+            <a href="#cta" class="mega-link">Open Account <i>→</i></a>
+          </div>
+
+          <div class="mega-item" style="margin-top:24px;padding-top:20px;border-top:1px solid var(--line)">
+            <div class="mega-item-head">
+              <div class="mega-icon">🛡️</div>
+              <div>
+                <h4>Secure Banking</h4>
+                <p class="mega-desc">Bank with confidence knowing your money is safe</p>
+              </div>
+            </div>
+            <ul class="mega-bullets">
+              <li>CBN licensed</li>
+              <li>NDIC insured</li>
+              <li>24/7 monitoring</li>
+              <li>Fraud protection</li>
+            </ul>
+            <a href="#about" class="mega-link">Security Info <i>→</i></a>
+          </div>
+        </div>
+
+        <div class="mega-divider"></div>
+
+        <!-- Right Column 1: Small Business Banking -->
+        <div class="mega-col">
+          <span class="mega-header">Business Banking</span>
+          <div class="mega-item">
+            <div class="mega-item-head">
+              <div class="mega-icon">🏬</div>
+              <div>
+                <h4>Small Business Banking</h4>
+                <p class="mega-desc">Tailored solutions for entrepreneurs and traders</p>
+              </div>
+            </div>
+            <ul class="mega-bullets">
+              <li>Business accounts</li>
+              <li>Bulk payments</li>
+              <li>POS services</li>
+              <li>Business loans</li>
+            </ul>
+            <a href="#products" class="mega-link">Learn More <i>→</i></a>
+          </div>
+        </div>
+
+        <!-- Right Column 2: Savings Account -->
+        <div class="mega-col">
+          <span class="mega-header">Savings & Wealth</span>
+          <div class="mega-item">
+            <div class="mega-item-head">
+              <div class="mega-icon">📈</div>
+              <div>
+                <h4>Savings Account</h4>
+                <p class="mega-desc">High-yield savings with flexible access</p>
+              </div>
+            </div>
+            <ul class="mega-bullets">
+              <li>Up to 15% interest</li>
+              <li>Easy withdrawals</li>
+              <li>Goal-based saving</li>
+              <li>Compound growth</li>
+            </ul>
+            <a href="#savings" class="mega-link">Start Saving <i>→</i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <a href="#loans">Loans</a>
   <a href="#savings">Savings</a>
   <a href="#about">About</a>
@@ -284,6 +429,46 @@ function count(n){const v=+n.dataset.count,d=+n.dataset.dec,t0=performance.now()
 if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');el.addEventListener('transitionend',()=>el.classList.remove('rv'),{once:true});el.querySelectorAll('[data-count]').forEach(count);io.unobserve(el)}),{threshold:.15});
 document.querySelectorAll('.card,.panel,.dash .p,section h2,.sub,.team').forEach(el=>{el.style.setProperty('--d',Array.from(el.parentNode.children).indexOf(el)*.08+'s');el.classList.add('rv');io.observe(el)})}
+// Banking dropdown behavior
+const bankingDropdown = document.getElementById('bankingDropdown');
+const bankingBtn = document.getElementById('bankingBtn');
+
+if (bankingBtn && bankingDropdown) {
+  bankingBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = bankingDropdown.classList.toggle('open');
+    bankingBtn.setAttribute('aria-expanded', isOpen);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!bankingDropdown.contains(e.target)) {
+      bankingDropdown.classList.remove('open');
+      bankingBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      bankingDropdown.classList.remove('open');
+      bankingBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  bankingDropdown.querySelectorAll('.mega-link, a').forEach(a => {
+    a.addEventListener('click', () => {
+      bankingDropdown.classList.remove('open');
+      bankingBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+// Nav shadow on scroll
+const mainNav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  if (mainNav) {
+    mainNav.classList.toggle('scrolled', window.scrollY > 20);
+  }
+}, { passive: true });
 </script>
 </body>
 </html>
