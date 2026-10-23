@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mint Microfinance Bank – CBN Licensed Digital Banking in Nigeria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbfaf8;--ink:#17181a;--mute:#8a8b8e;--card:#fff;--line:#e8e5df;--amber:#4fd69c;--amber2:#fde7b0;--dark:#0e1013;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101214;--ink:#f1efea;--mute:#8d8f93;--card:#191c20;--line:#2a2d32}}
+*{box-sizing:border-box;margin:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font-family:Outfit,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(10px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;gap:8px;align-items:center;font-weight:600;font-size:19px}
+.logo i{width:20px;height:20px;border:3px solid var(--ink);border-radius:5px;display:block}
+.links{display:flex;gap:30px;font-size:13px}
+.btn{background:var(--amber);color:#06281c;border-radius:8px;padding:7px 16px;font-size:13px;font-weight:500;display:inline-block;border:0;cursor:pointer;font-family:inherit}
+h1,h2{font-weight:500;letter-spacing:-.025em;line-height:1.08}
+h2 span,h1 span{color:var(--mute)}
+.hero{background:linear-gradient(#c9f4e0,var(--bg) 78%);margin-top:-60px;padding-top:130px;text-align:center}
+.hero h1{font-size:clamp(34px,6vw,64px)}
+.hero p{max-width:560px;margin:20px auto 26px;color:#3f5a4e;font-size:16px}
+.hero .btn{margin:0 4px;padding:10px 22px}.btn.ghost{background:transparent;border:1px solid #06281c55}
+.built{margin:44px 0 28px;font-size:13px;color:var(--mute)}
+.logos{display:flex;justify-content:center;gap:40px;font-weight:600;flex-wrap:wrap;margin-bottom:32px}
+.dash{display:grid;grid-template-columns:1fr 1.5fr;gap:12px;text-align:left;margin-top:8px}
+.dash .p{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;font-size:12px;color:var(--mute)}
+.dash b{display:block;font-size:26px;font-weight:500;color:var(--ink);margin:4px 0 10px}
+.dash .wide{grid-column:1/3}
+.row{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--line);color:var(--ink)}
+.pos{color:#1f9d55}.tag{background:#eee9;border-radius:5px;padding:1px 7px;font-size:11px;color:var(--mute)}
+.spark{height:70px;margin-top:6px}
+section{padding:90px 0}
+h2{font-size:clamp(28px,4vw,42px)}
+.sub{color:var(--mute);margin:14px 0 36px;max-width:520px}
+.four{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center}
+.card .art{height:130px;border-radius:10px;background:linear-gradient(#a9ecd0,#e8fbf2);margin-bottom:18px;display:grid;place-items:center;font-size:13px;color:#1d5a43}
+.card h3{font-weight:500;font-size:16px}.card p{font-size:13px;color:var(--mute);margin-top:6px}
+.cards{background:radial-gradient(120% 90% at 70% 40%,#43d9a0 0,#18a574 28%,#0f3a2e 55%,var(--bg) 75%);color:#fff;overflow:hidden}
+.cards .wrap{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;min-height:520px}
+.cards p{max-width:340px;margin-top:14px;font-size:15px;opacity:.9}.cards small{display:block;margin-top:18px;opacity:.75}
+.phone{width:250px;height:440px;margin:40px auto 0;border:7px solid #111;border-radius:38px 38px 0 0;background:#fff;color:#111;padding:44px 16px}
+.vcard{margin-top:22px;height:140px;border-radius:12px;background:linear-gradient(160deg,#0f9d6b,#7be8bd);color:#fff;padding:14px;font-size:11px;display:flex;flex-direction:column;justify-content:space-between}
+.team{display:grid;grid-template-columns:.8fr 1.4fr;gap:40px;align-items:start}
+.tabs button{display:block;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:14px 0;font:500 17px Outfit,sans-serif;color:var(--mute);cursor:pointer}
+.tabs button[aria-selected=true]{color:var(--ink)}
+.tabs button p{font-size:13px;font-weight:400;margin-top:6px;color:var(--mute);display:none}
+.tabs button[aria-selected=true] p{display:block}
+.pane{background:#eee;background:color-mix(in srgb,var(--card) 70%,#d9d6cf);border:1px solid var(--line);border-radius:14px;padding:22px;min-height:340px}
+.pane .row{font-size:13px}
+.dark{background:linear-gradient(var(--dark) 70%,#0f3a2e 90%,#1f9d72);color:#f2f0ea;text-align:center;padding-bottom:140px}
+.dark .sub{margin:14px auto 40px;color:#a5a7ab;max-width:600px}
+.panel{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;text-align:left;border:1px solid #ffffff18;border-radius:14px;padding:36px;margin-bottom:16px}
+.panel h3{font-weight:500;font-size:17px}.panel p{font-size:13px;color:#a5a7ab;margin-top:8px}
+.chat{background:#fff;color:#222;border-radius:12px;padding:14px;font-size:13px}
+.chat .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.chat .chips span{background:#eee;border-radius:6px;padding:3px 8px;font-size:11px}
+.cta{background:linear-gradient(var(--bg),#b8f1d8 30%,#35c98f 52%,#0f3a2e 72%,#0f1714);text-align:center;padding:120px 0 40px}
+.cta .btn{margin-top:18px;padding:10px 24px}
+footer{background:#0f1714;color:#9aa6a0;font-size:12px;padding:50px 0 60px}
+footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:20px;margin-bottom:36px}
+footer .logo{color:#fff}footer h4{color:#fff;font-weight:400;margin-bottom:10px}footer a{display:block;margin-bottom:8px}
+footer p{margin-top:14px;max-width:900px}
+@media(max-width:760px){.links{display:none}.dash,.cards .wrap,.team,.panel,footer .cols{grid-template-columns:1fr}.dash .wide{grid-column:auto}}
+@media(prefers-reduced-motion:no-preference){
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes drift{from{transform:translate(-8%,0) scale(1)}to{transform:translate(8%,6%) scale(1.15)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes shine{0%,55%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+@keyframes breathe{from{background-position:60% 40%}to{background-position:40% 60%}}
+@keyframes ctaShift{from{background-position:0 0}to{background-position:0 100%}}
+@keyframes pop{0%,100%{transform:scale(1)}50%{transform:scale(1.08);box-shadow:0 0 0 6px #3ddc8433}}
+@keyframes dr{to{stroke-dashoffset:0}}
+.hero{position:relative;overflow:hidden}
+.hero>.wrap{position:relative}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto;height:70%;background:radial-gradient(40% 60% at 30% 40%,#5ff0b088,transparent 70%),radial-gradient(35% 55% at 72% 50%,#2fd0a066,transparent 70%);filter:blur(30px);animation:drift 12s ease-in-out infinite alternate}
+.hero>.wrap>h1,.hero>.wrap>p,.hero>.wrap>a{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero>.wrap>p{animation-delay:.15s}.hero>.wrap>a{animation-delay:.3s}.hero>.wrap>.built{animation:rise .9s .45s both}
+.cards{background-size:130% 130%;animation:breathe 14s ease-in-out infinite alternate}
+.phone{animation:float 6s ease-in-out infinite}
+.vcard{position:relative;overflow:hidden}
+.vcard::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,#fff6 50%,transparent 65%);transform:translateX(-120%);animation:shine 4.5s 1s infinite}
+.cta{background-size:100% 130%;animation:ctaShift 10s ease-in-out infinite alternate}
+.panel:last-of-type .chips span{animation:pop 2.4s ease-in-out infinite}
+.draw{stroke-dasharray:1;stroke-dashoffset:1}
+.dash .p.in .draw{animation:dr 1.6s .3s ease forwards}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.card{transition:transform .25s,box-shadow .25s}.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px #0001}
+.tabs button{transition:color .3s}
+.pane b{display:block;animation:rise .4s both}
+.pane .row{animation:rise .5s both}.pane .row:nth-child(2){animation-delay:.08s}.pane .row:nth-child(3){animation-delay:.16s}
+}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="logo" href="#top"><i></i>Mint</a>
+<div class="links"><a href="#products">Products</a><a href="#app">Mobile app</a><a href="#cta">Contact Us</a></div>
+<a class="btn" href="#cta">Open account</a></div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+<h1>Digital banking for Nigerians<br><span>and the businesses they run</span></h1>
+<p>Open an account in minutes. Save, borrow, pay and get paid from one app, backed by a CBN-licensed, NDIC-insured microfinance bank.</p>
+<a class="btn" href="#cta">Open an account</a><a class="btn ghost" href="#app">Get the app</a>
+<div class="built">Licensed and insured</div>
+<div class="logos"><span>CBN Licensed</span><span>NDIC Insured</span><span>iOS App</span><span>Port Harcourt, Rivers State</span></div>
+<div class="dash">
+<div class="p">Balance<b data-pre="₦" data-count="1284500" data-dec="2">₦1,284,500.00</b><div class="row"><span>Account Type</span><span>Business</span></div><div class="row"><span>Savings Goal</span><span>Shop rent</span></div><div class="row"><span>Next Repayment</span><span>In 12 days</span></div></div>
+<div class="p">Total Spending<b data-pre="₦" data-count="462300" data-dec="2">₦462,300.00</b>58% of monthly budget used
+<svg class="spark" viewBox="0 0 300 70" preserveAspectRatio="none"><path class="draw" pathLength="1" d="M0 55C40 50 60 40 100 42S160 22 200 30 260 12 300 18" fill="none" stroke="#18a574" stroke-width="2"/></svg></div>
+<div class="p wide"><b style="font-size:15px;margin:0 0 6px">Recent activity (sample data)</b>
+<div class="row"><span>Today 09:39</span><span>POS settlement</span><span class="tag">POS</span><span class="pos">+₦85,000</span></div>
+<div class="row"><span>Today 08:10</span><span>Supplier transfer</span><span class="tag">Transfer</span><span>-₦120,000</span></div>
+<div class="row"><span>Yesterday</span><span>Airtime top-up</span><span class="tag">Bills</span><span>-₦2,000</span></div>
+<div class="row"><span>Mon</span><span>Savings goal deposit</span><span class="tag">Savings</span><span>-₦25,000</span></div></div>
+</div></div></header>
+
+<section id="products"><div class="wrap">
+<h2>Everything you need to bank, borrow and grow <span>without leaving your phone.</span></h2>
+<p class="sub">Personal and business accounts, credit, savings and payments from one licensed bank.</p>
+<div class="four">
+<div class="card"><div class="art">Up to ₦10M</div><h3>Business Loans</h3><p>Apply for instant loans in the app and put working capital to use quickly.</p></div>
+<div class="card"><div class="art">High-yield savings</div><h3>Savings</h3><p>Set aside money for what matters and earn competitive interest while it grows.</p></div>
+<div class="card"><div class="art">Send · Pay · Top up</div><h3>Mobile Banking</h3><p>Transfer money, pay bills and buy airtime in a few taps, any time of day.</p></div>
+<div class="card"><div class="art">Accept card payments</div><h3>POS Services</h3><p>Take payments at your shop or stall and watch sales land in your account.</p></div>
+</div></div></section>
+
+<section class="cards" id="app"><div class="wrap">
+<div><h2>Your bank in your pocket</h2><p>Open a personal or business account without paperwork, then send and receive money, pay bills and manage everything in one app.</p><small>Available on iPhone.</small></div>
+<div class="phone"><b>Wallet</b><div class="vcard"><b>Mint &nbsp; Microfinance Bank</b><span>**** **** **** 1234<br>Personal account</span></div></div>
+</div></section>
+
+<section><div class="wrap">
+<h2>One bank for<br>every part of your day.</h2>
+<p class="sub">Whether you earn a salary or run a shop, Mint keeps your money organised.</p>
+<div class="team">
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="pane" id="pane"></div>
+</div></div></section>
+
+<section class="dark"><div class="wrap">
+<h2>Credit and savings that work as hard as you do</h2>
+<p class="sub">Borrow when your business needs room to grow, and save steadily for the goals ahead.</p>
+<div class="panel"><div><h3>Instant business loans</h3><p>Apply in the app for loans up to ₦10M and repay on a schedule you can plan around.</p></div>
+<div class="chat"><b>Loan application</b><div class="row" style="color:#222"><span>Amount</span><span>₦2,500,000</span></div><div class="row" style="color:#222"><span>Purpose</span><span>Stock purchase</span></div><div class="chips"><span>Fast decision</span><span>Flexible repayment</span></div></div></div>
+<div class="panel"><div><h3>High-yield savings</h3><p>Create goals, fund them as often as you like, and earn interest on every naira you set aside.</p></div>
+<div class="chat"><b>Shop rent goal · 72%</b><div class="row" style="color:#222"><span>Saved</span><span>₦360,000</span></div><div class="row" style="color:#222"><span>Target</span><span>₦500,000</span></div><div class="chips"><span>✓ Deposit received</span></div></div></div>
+</div></section>
+
+<section><div class="wrap">
+<h2>Banking you can trust.</h2>
+<p class="sub">A licensed bank with insured deposits, built for how Nigeria pays.</p>
+<div class="four">
+<div class="card"><h3>CBN Licensed</h3><p>Regulated by the Central Bank of Nigeria as a microfinance bank.</p></div>
+<div class="card"><h3>NDIC Insured</h3><p>Deposits are covered by the Nigeria Deposit Insurance Corporation.</p></div>
+<div class="card"><h3>Open in minutes</h3><p>Start a personal or business account from your phone, with no paperwork.</p></div>
+<div class="card"><h3>Made for Nigeria</h3><p>Naira accounts, local bill payments and support from a team in Port Harcourt.</p></div>
+</div></div></section>
+
+<div class="cta" id="cta"><div class="wrap"><h2 style="color:var(--ink)">Open your Mint account today.</h2><p class="sub" style="margin:12px auto 0">Bank, borrow and save in one app.</p><a class="btn" href="#top">Open account</a></div></div>
+
+<footer><div class="wrap">
+<div class="cols"><div><a class="logo" href="#top"><i style="border-color:#fff"></i>Mint</a><p style="margin-top:12px">© Mint Microfinance Bank Ltd. All rights reserved.</p></div>
+<div><h4>Company</h4><a href="#top">About</a><a href="#cta">Contact Us</a></div>
+<div><h4>Products</h4><a href="#products">Business Loans</a><a href="#products">Savings</a><a href="#app">Mobile Banking</a><a href="#products">POS Services</a></div>
+<div><h4>Get started</h4><a href="#cta">Open account</a><a href="#app">iPhone app</a></div></div>
+<p>Mint Microfinance Bank is licensed by the Central Bank of Nigeria, and deposits are insured by the Nigeria Deposit Insurance Corporation. Loan approval is subject to eligibility. Figures shown on this page are sample data.</p>
+</div></footer>
+
+<script>
+const T=[["Personal accounts","Open an account in minutes, then send and receive money, pay bills and buy airtime from the app.",[["Account type","Personal"],["Opening","No paperwork"],["Bills & airtime","In-app"]]],
+["Business accounts","Keep business money in one place with an account built for traders, shops and growing companies.",[["Account type","Business"],["Payments in","Transfers & POS"],["Payments out","Suppliers & bills"]]],
+["Loans","Apply for instant business loans of up to ₦10M and track repayments in the app.",[["Loan limit","Up to ₦10M"],["Application","In the app"],["Repayment","Scheduled"]]],
+["POS & payments","Accept card payments at your business and see every sale reflected in your account.",[["Channel","POS terminal"],["Settlement","To your account"],["Reporting","Per transaction"]]]];
+const tabs=document.getElementById('tabs'),pane=document.getElementById('pane');
+function show(i){tabs.innerHTML=T.map((t,k)=>`<button role="tab" aria-selected="${k==i}" data-i="${k}">${t[0]}<p>${t[1]}</p></button>`).join('');
+pane.innerHTML=`<b style="font-size:20px;font-weight:500">${T[i][0]}</b><div style="margin-top:16px">`+T[i][2].map(r=>`<div class="row"><span style="color:var(--mute)">${r[0]}</span><span>${r[1]}</span></div>`).join('')+'</div>'}
+tabs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)show(+b.dataset.i)});show(0);
+function count(n){const v=+n.dataset.count,d=+n.dataset.dec,t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,3);n.textContent=n.dataset.pre+(v*e).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});if(k<1)requestAnimationFrame(f)})(t0)}
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');el.addEventListener('transitionend',()=>el.classList.remove('rv'),{once:true});el.querySelectorAll('[data-count]').forEach(count);io.unobserve(el)}),{threshold:.15});
+document.querySelectorAll('.card,.panel,.dash .p,section h2,.sub,.team').forEach(el=>{el.style.setProperty('--d',Array.from(el.parentNode.children).indexOf(el)*.08+'s');el.classList.add('rv');io.observe(el)})}
+</script>
+</body>
+</html>
